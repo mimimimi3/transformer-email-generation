@@ -148,6 +148,8 @@ activemq-data/
 *.sage.py
 
 # Environments
+
+.genaivenv ## our project venv
 .env
 .envrc
 .venv
@@ -216,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# macOS system files
+.DS_Store
