@@ -1,0 +1,42 @@
+dataset_name: "postbot/aeslc_kw"
+
+# The Chosen Dataset columns
+body_column: "clean_email"
+target_column: "subject_line"
+
+# Chosen Model
+model_checkpoint: "google-t5/t5-small"
+output_dir: "models/t5_subject_model"
+logging_dir: "outputs/logs"
+
+# Task formatting for the model
+task_prefix: "summarize this email as a subject line: "
+
+# Token lengths
+max_input_length: 512
+max_target_length: 50
+
+# Training settings
+learning_rate: 0.00005
+train_batch_size: 4
+eval_batch_size: 4
+num_train_epochs: 5
+weight_decay: 0.01
+num_beams: 4
+
+# Data cleaning
+min_email_chars: 40
+min_subject_chars: 2
+
+# Reproducibility
+seed: 42
+
+# GPU settings
+fp16: true
+
+# Logging
+report_to: "none"
+
+# Output settings
+num_output_samples: 15
+compute_bertscore: true

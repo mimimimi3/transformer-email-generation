@@ -221,3 +221,10 @@ __marimo__/
 
 # macOS system files
 .DS_Store
+# Project-specific ignores
+.venv/
+models/
+outputs/
+data/raw/
+data/processed/
+.cache/

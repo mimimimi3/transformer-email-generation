@@ -1,0 +1,165 @@
+================================================================================
+Example 1
+
+EMAIL BODY:
+Phillip, Could you please do me a favor? I would like to read your current title policy to see what it says about easements. You should have received a copy during your closing. I don't know how many pages it will be but let me know how you want to handle getting a copy made. I'll be happy to make the copy, or whatever makes it easy for you. Thanks,
+
+REFERENCE SUBJECT: Huntley/question
+GENERATED SUBJECT: Utilities
+ERROR TYPE: Generated output too short
+ROUGH ROUGE-L F1: 0.0
+
+================================================================================
+Example 2
+
+EMAIL BODY:
+The following reports have been waiting for your approval for more than <NUMBER> days. Please review. Owner: James W Reitmeyer Report Name: JReitmeyer <NUMBER>/<NUMBER>/<NUMBER> Days In Mgr. Queue: <NUMBER>
+
+REFERENCE SUBJECT: Expense Reports Awaiting Your Approval
+GENERATED SUBJECT: Expense Reports Awaiting Your Approval
+ERROR TYPE: Generated output is an exact match with the reference text
+ROUGH ROUGE-L F1: 1.0
+
+================================================================================
+Example 3
+
+EMAIL BODY:
+We have for the last couple of weeks started to compile the Re-start/Integration Plans for Netco. So far, we have primarily focussed on the mid/back plans where the technology requirements have been the driving factors. Several plans are in the final stages of completion including:- + Infrastructure Jenny Rub + Development Jay Webb + <COMPANY>Online Webb / Forster + HR David Oxley + Cash Management Tom Myers + Credit Debbie Brackett The rest will be completed shortly. We now need to focus on the commercial plans which have a slightly different focus. John and I would like to receive the plans "Re-start/Integration" plans by January 0th, <NUMBER> in order to go through them individually with each of you or in groups. The focus should be to ensure that we have as much of the business up and running in the shortest time possible. I have a suggested outline which you do not have to use but I thought it might help. Please decide within yourselves the areas you will cover together or individually. Customer Side + Customers Phase <NUMBER> - First Week (eg top <NUMBER>) Phase <NUMBER> - Firs
+
+REFERENCE SUBJECT: Re-start/Integration Planning
+GENERATED SUBJECT: Netco Re-Start/Integration Plans
+ERROR TYPE: Generated output needs manual review
+ROUGH ROUGE-L F1: 0.6667
+
+================================================================================
+Example 4
+
+EMAIL BODY:
+Michelle Here are my very minor comments. However we still need to wait on any additions, based on meeting with SME's today. One concern is the firing of the learner who performs bad in the final two scenarios. Do we face any copyright issues using the CNN type themes? In addition, I think we need to stay clear of anything that remotely seems like California or anything that really happen with <COMPANY>? (i.e. So-cal Waha) In addition, comments on regulatory issues may be a problem (i.e. California Legislature). Sheri When you read all the scripts together and due to the similar mechanics being taught it appears very repetitious. Thus I do believe we need to maybe use a "Dateline" type theme for one, and a "<NUMBER> Minute" type theme for another scenario vice just the CNN type theme. In the last two scenarios can we include a promotion out of the associate program for the stellar performers (i.e. title change to manager)? Cheers Kirk
+
+REFERENCE SUBJECT: RM Simulation Storyline Scripts - Ready for Legal Review
+GENERATED SUBJECT: SME's
+ERROR TYPE: Generated output too short
+ROUGH ROUGE-L F1: 0.0
+
+================================================================================
+Example 5
+
+EMAIL BODY:
+For purposes of an accelerated distribution from the PSA, a "single sum distribution," in Section <NUMBER> means that a PSA account is distributed all at once, as distinguished from another form of payout as may have been selected by a participant in his or her deferral agreement. Section <NUMBER> is clear in that the account balance shall be determined as of the last day of the month preceding the date on which the Committee receives the written request of the Participant. A PSA account balance is reflected in shares of stock since the form of distribution is shares of stock. Additionally, any portion of a PSA balance attributable to deferral of restricted stock is administered under Sections <NUMBER> and <NUMBER> and Exhibit A of the Plan. This section is applicable now as we are accelerating the distribution of PSA balances created with deferrals of restricted stock. The Plan indicates that upon death, disability, retirement or termination, the share units are converted to shares which are issued to the executive according to the payment election made by the executive at the time 
+
+REFERENCE SUBJECT: Answer
+GENERATED SUBJECT: accelerated distribution from the PSA
+ERROR TYPE: Generated output has low overlap with reference
+ROUGH ROUGE-L F1: 0.0
+
+================================================================================
+Example 6
+
+EMAIL BODY:
+All: Attached you will find a list that reflects your seat assignments for Business Continuity Planning (BCP). These seats are located on the 00th and 00st Floors of <COMPANY> Center North (ECN). As previously communicated, you will report to these designated seats in the event of an outage in ECS. The exception to this is as follows: If your seat assignment is located on the 00st Floor, you will report to your original location that you occupied prior to your move into ECS. This will hold true until the Monday after Thanksgiving, as we will have the 00st floor seats set up at that time. Testing: Once you have moved to ECS, if you would like to test your BCP location, you will be able to test your seat for functionality every Thursday from <NUMBER>-0pm. Testing is not required, but is highly recommended. If anyone has any questions or concerns about these procedures, please feel free to contact me at any time. Regards,
+
+REFERENCE SUBJECT: BCP Seat Assignments
+GENERATED SUBJECT: Seat Assignments for Business Continuity Planning (BCP)
+ERROR TYPE: Generated output needs manual review
+ROUGH ROUGE-L F1: 0.4
+
+================================================================================
+Example 7
+
+EMAIL BODY:
+As our last day is Friday, November 00th, we would love to toast the good times and special memories that we have shared with you over the past five years. Please join us at Teala's (W. Dallas) on Thursday, November 00th, beginning at 0pm. Looking forward to being with you, Lara and Janel Lara Leibman
+
+REFERENCE SUBJECT: Farewell Drinks
+GENERATED SUBJECT: Teala's (W. Dallas)
+ERROR TYPE: Generated output has low overlap with reference
+ROUGH ROUGE-L F1: 0.0
+
+================================================================================
+Example 8
+
+EMAIL BODY:
+Hi John, I was wondering if you had a chance to put together that slide for us. I know you are really busy and we appreciate your help. Thanks. Savita
+
+REFERENCE SUBJECT: Slide for John Sheriff
+GENERATED SUBJECT: Slide
+ERROR TYPE: Generated output too short
+ROUGH ROUGE-L F1: 0.4
+
+================================================================================
+Example 9
+
+EMAIL BODY:
+All, The below Analyst & Associate recruiting dates require <COMPANY> participation at Manager level at above. In order to resource each of your departments it is important to have <COMPANY>'s involvement and participation in the interviews and debrief sessions on Fantastic Friday and Super Saturday events. These de-brief sessions will allow you the opportunity to select candidates you wish to join your groups. The target is to assign potential candidates to business units and departments from the outset. As <COMPANY> has the highest percentage of A&A rotating in its business unit, the participation of <COMPANY> at interview should reflect this. Therefore, please encourage your direct reports and managers to participate in the below events in order to secure candidates for your business area. Associate Recruiting: Saturday November <NUMBER> Total - <NUMBER> Candidates for Interview Analyst Recruiting: Friday, November <NUMBER> Total - <NUMBER> Candidates for Interivew Associate Recruiting: Saturday, December <NUMBER> Total - <NUMBER> Candidates for Interview The above spreadsheet rep
+
+REFERENCE SUBJECT: URGENT - ENA Associates & Analysts
+GENERATED SUBJECT: Analyst & Associate Requirements
+ERROR TYPE: Generated output has low overlap with reference
+ROUGH ROUGE-L F1: 0.0
+
+================================================================================
+Example 10
+
+EMAIL BODY:
+Late on October 00th, we received information about a nonspecific threat to the <COMPANY> Center. We communicated with law enforcement officials who found the threat unsubstantiated and without merit. Nonetheless we take all threats seriously and have increased the security presence at the <COMPANY> Center still further. Once again, if you observe suspicious behavior, please call security at <NUMBER>-<NUMBER>.
+
+REFERENCE SUBJECT: Increased Security at Enron Center
+GENERATED SUBJECT: Threat to the COMPANY> Center
+ERROR TYPE: Generated output needs manual review
+ROUGH ROUGE-L F1: 0.2
+
+================================================================================
+Example 11
+
+EMAIL BODY:
+Hi John, The events surrounding the <COMPANY> demise are quite disturbing not only to me but to many of us over here. Our hearts go out to all the employees who will not only loose their employment but also most, if not all, of their savings. As you know, I've always thought a lot of you; not only for your trading skills, but also as a person. You are one of the largest and most influential traders in the market, yet do not have the annoying ego so often found in traders of your stature. I'm absolutely sure that you'll do well no matter where your career takes you. I just wanted you to know that if there is ever anything I can do for you, please don't hesitate to call. This is not a solicitation for employment. This is from a person who always felt you treated me honestly and fairly and if the occasion arises, would like to reciprocate.
+
+REFERENCE SUBJECT: Greetings
+GENERATED SUBJECT: ENA demise
+ERROR TYPE: Generated output has low overlap with reference
+ROUGH ROUGE-L F1: 0.0
+
+================================================================================
+Example 12
+
+EMAIL BODY:
+Kevin Presto is requesting that you attend a meeting regarding Organizing an Action Plan for the Start-up of Netco. The meeting will be held in ECS <NUMBER> at <NUMBER>:<NUMBER> am, Wednesday, January <NUMBER>, <NUMBER>. For Tim and Chris, could you please call <PHONE>. This is the telephone number in the conference room. If you should have any questions, please call T Jae Black at <NUMBER>-<NUMBER>. Thanks
+
+REFERENCE SUBJECT: Meeting on Wednesday, January 2 - 9:30 am
+GENERATED SUBJECT: Netco Action Plan
+ERROR TYPE: Generated output has low overlap with reference
+ROUGH ROUGE-L F1: 0.0
+
+================================================================================
+Example 13
+
+EMAIL BODY:
+Harry - I got kicked out of the system, so I'm sending this from Tom's account. He can fill you in on the potential deal with STEAG. I left my resume on your chair. I'll e-mail a copy when I have my home account running. My contact info is:
+
+REFERENCE SUBJECT: STEAG Power LLC
+GENERATED SUBJECT: STEAG
+ERROR TYPE: Generated output too short
+ROUGH ROUGE-L F1: 0.5
+
+================================================================================
+Example 14
+
+EMAIL BODY:
+Harry: Got the bid documents for ConEd's offering of peaking capacity for PJM East (Lakewood, New Jersey). Can't imagine they would entertain an <COMPANY> bid right now without confiscatory credit pricing. Do you want to bid anyway? Let me know.
+
+REFERENCE SUBJECT: ConEd - Lakewood Peaker
+GENERATED SUBJECT: PJM East
+ERROR TYPE: Generated output has low overlap with reference
+ROUGH ROUGE-L F1: 0.0
+
+================================================================================
+Example 15
+
+EMAIL BODY:
+Thank you for allowing me to explain the UBS relocation policy. I have included a repayment agreement that must be printed out, signed and faxed back to <PHONE> at your earliest convenience. I look forward to working with you in the future. Thanks
+
+REFERENCE SUBJECT: Relocation
+GENERATED SUBJECT: UBS Relocation Agreement
+ERROR TYPE: Generated output needs manual review
+ROUGH ROUGE-L F1: 0.5
+
