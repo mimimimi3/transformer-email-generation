@@ -1,0 +1,86 @@
+{
+  "builder_name": "csv",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "aeslc_kw",
+  "dataset_size": 30726479,
+  "description": "",
+  "download_checksums": {
+    "hf://datasets/postbot/aeslc_kw@530c56654e422a9d36bc549977c2be4c9ed36ab4/train.csv": {
+      "num_bytes": 24226745,
+      "checksum": null
+    },
+    "hf://datasets/postbot/aeslc_kw@530c56654e422a9d36bc549977c2be4c9ed36ab4/validation.csv": {
+      "num_bytes": 3421804,
+      "checksum": null
+    },
+    "hf://datasets/postbot/aeslc_kw@530c56654e422a9d36bc549977c2be4c9ed36ab4/test.csv": {
+      "num_bytes": 2980733,
+      "checksum": null
+    }
+  },
+  "download_size": 30629282,
+  "features": {
+    "email_body": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "subject_line": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "clean_email": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "clean_email_keywords": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "preprocessed_email_body": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "preprocessed_subject": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "body_subject_combined": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "email_with_instruction": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 61355761,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 24305904,
+      "num_examples": 14436,
+      "dataset_name": "aeslc_kw"
+    },
+    "validation": {
+      "name": "validation",
+      "num_bytes": 3430681,
+      "num_examples": 1960,
+      "dataset_name": "aeslc_kw"
+    },
+    "test": {
+      "name": "test",
+      "num_bytes": 2989894,
+      "num_examples": 1906,
+      "dataset_name": "aeslc_kw"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}
