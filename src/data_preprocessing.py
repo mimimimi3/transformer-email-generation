@@ -3,6 +3,19 @@
 # import libraries
 import re
 from transformers import AutoTokenizer
+from datasets import load_dataset
+
+def dataset_loader(dataset_name: str) -> dict:
+    '''This function loads the dataset from the Hugging Face datasets library.
+
+    Args:
+        dataset_name (str): The name of the dataset to be loaded.
+
+    Returns:
+        dict: The loaded dataset.
+    '''
+    return load_dataset(dataset_name)
+
 
 def data_preprocessing(examples: dict) -> dict:
     '''This function preprocesses the email record by cleaning the email body and subject line.
