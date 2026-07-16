@@ -221,3 +221,6 @@ __marimo__/
 
 # macOS system files
 .DS_Store
+
+# ignore preprocessed dataset
+data/preprocessed_dataset
