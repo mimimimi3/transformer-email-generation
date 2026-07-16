@@ -1,0 +1,30 @@
+[
+  {
+    "rouge1": 0.1592,
+    "rouge2": 0.0643,
+    "rougeL": 0.1494,
+    "bleu": 0.9541,
+    "bertscore_precision": 0.83,
+    "bertscore_recall": 0.86,
+    "bertscore_f1": 0.8444,
+    "average_generated_subject_words": 12.56,
+    "test_loss": 3.4814,
+    "perplexity": 32.5045,
+    "model_name": "t5-small",
+    "model_checkpoint": "google-t5/t5-small"
+  },
+  {
+    "rouge1": 0.2912,
+    "rouge2": 0.1355,
+    "rougeL": 0.2694,
+    "bleu": 2.5796,
+    "bertscore_precision": 0.858,
+    "bertscore_recall": 0.8772,
+    "bertscore_f1": 0.8669,
+    "average_generated_subject_words": 9.33,
+    "test_loss": NaN,
+    "perplexity": NaN,
+    "model_name": "flan-t5-small",
+    "model_checkpoint": "google/flan-t5-small"
+  }
+]

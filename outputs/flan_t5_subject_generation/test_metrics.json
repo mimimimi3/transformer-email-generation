@@ -1,0 +1,12 @@
+{
+  "rouge1": 0.3328,
+  "rouge2": 0.1811,
+  "rougeL": 0.3241,
+  "bleu": 12.0934,
+  "bertscore_precision": 0.8839,
+  "bertscore_recall": 0.8808,
+  "bertscore_f1": 0.8819,
+  "average_generated_subject_words": 4.1,
+  "test_loss": 2.8305,
+  "perplexity": 16.9544
+}

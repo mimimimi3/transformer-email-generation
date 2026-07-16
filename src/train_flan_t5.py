@@ -12,17 +12,17 @@ import numpy as np # Imports numpy used for metric calculations which use arrays
 
 import torch # Imports torch as Hugging Face models run using PyTorch
 
-import yaml # Imports yaml which can read settings from configs/t5_config.yaml
+import yaml # Imports yaml which can read settings from configs/FLAN-T5.yaml
 
 from datasets import load_dataset # Imports load_dataset which can load the Hugging Face dataset
 
 # Imports the Hugging Face model, tokenizer, trainer, and training utilities
 from transformers import (
-    # Loads T5-small as a sequence-to-sequence model.
+    # Loads FLAN-T5 as a sequence-to-sequence model.
     # This is used because email bodies have to be analyzed for email subject generation
     AutoModelForSeq2SeqLM,
 
-    # Loads the tokenizer that works with T5-small
+    # Loads the tokenizer that works with FLAN-T5
     AutoTokenizer,
 
     # Ensures input examples are padded inside each batch
@@ -99,7 +99,7 @@ def prepare_dataset(config):
                 f"The {split_name} split is missing required columns, they are: "
                 f"{sorted(missing_columns)}")
 
-    # Defines process of converting one raw dataset row into a T5 training example
+    # Defines process of converting one raw dataset row into a FLAN-T5 training example
     def format_example(example):
         # Cleans the email body text using the previously defined function
         email_body = clean_text(example[body_column])
@@ -109,10 +109,10 @@ def prepare_dataset(config):
 
         # Returns new columns that the training code will use
         return {
-            # This is the input that T5 receives
+            # This is the input that Flan-T5 receives
             "input_text": config["task_prefix"] + email_body,
 
-            # This is the target output T5 learns to generate
+            # This is the target output Flan-T5 learns to generate
             "target_text": subject,
 
             # This stores the cleaned email body for later output inspection
@@ -175,7 +175,7 @@ def prepare_dataset(config):
     return dataset
 
 
-# Converts the text into token IDs that T5 can interpret
+# Converts the text into token IDs that Flan-T5 can interpret
 def tokenize_dataset(dataset, tokenizer, config):
     # Defines a function to tokenize a batch of examples
     def tokenize_batch(batch):
@@ -523,7 +523,7 @@ def classify_error(generated_subject, reference_subject, rough_score):
 # Saves predictions, readable samples, metrics, and error examples
 def save_outputs(prediction_rows, final_metrics, test_results, config):
     # Defines the output folder
-    output_dir = Path("outputs/t5_subject_generation")
+    output_dir = Path(config.get("results_dir", "outputs/t5_subject_generation"))
 
     # Creates the output folder if it does not already exist
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -540,7 +540,7 @@ def save_outputs(prediction_rows, final_metrics, test_results, config):
         row["error_type"] = classify_error(row["generated_subject"], row["reference_subject"], score)
 
     # Defines the CSV file path for all predictions
-    predictions_csv_path = output_dir / "t5_subject_predictions.csv"
+    predictions_csv_path = output_dir / "flan_t5_subject_predictions.csv"
 
     # Opens the predictions CSV file
     with open(predictions_csv_path, "w", encoding="utf-8", newline="") as file:
@@ -564,7 +564,7 @@ def save_outputs(prediction_rows, final_metrics, test_results, config):
         writer.writerows(prediction_rows)
 
     # Defines the CSV file path for error examples
-    errors_csv_path = output_dir / "t5_subject_error_examples.csv"
+    errors_csv_path = output_dir / "flan_t5_subject_error_examples.csv"
 
     # Sorts examples from lowest rough score to highest rough score
     worst_rows = sorted(prediction_rows, key=lambda row: row["rough_rouge_l_f1"])[:10]
@@ -676,7 +676,7 @@ def save_outputs(prediction_rows, final_metrics, test_results, config):
 # Main function which controls the full training script
 def main():
     # Load project settings from the YAML config file.
-    config = load_config("configs/t5_config.yaml")
+    config = load_config("configs/flan_t5_config.yaml")
 
     # Creates logs folder if needed
     Path("outputs/logs").mkdir(parents=True, exist_ok=True)
@@ -693,10 +693,10 @@ def main():
     # Prints progress before loading the model
     print("Loading tokenizer and model...")
 
-    # Loads the tokenizer for T5-small
+    # Loads the tokenizer for FLAN-T5
     tokenizer = AutoTokenizer.from_pretrained(config["model_checkpoint"])
 
-    # Loads the pretrained T5-small model
+    # Loads the pretrained FLAN-T5 model
     model = AutoModelForSeq2SeqLM.from_pretrained(config["model_checkpoint"])
 
     # Tokenizes the full dataset

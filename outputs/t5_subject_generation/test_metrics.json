@@ -1,11 +1,12 @@
 {
-  "rouge1": 0.3222,
-  "rouge2": 0.1777,
-  "rougeL": 0.314,
-  "bleu": 10.3606,
-  "bertscore_precision": 0.885,
-  "bertscore_recall": 0.8777,
-  "bertscore_f1": 0.8809,
-  "average_generated_subject_words": 3.76,
-  "test_loss": 3.0491
+  "rouge1": 0.3173,
+  "rouge2": 0.1755,
+  "rougeL": 0.3091,
+  "bleu": 10.3159,
+  "bertscore_precision": 0.8837,
+  "bertscore_recall": 0.877,
+  "bertscore_f1": 0.8798,
+  "average_generated_subject_words": 3.82,
+  "test_loss": 3.0606,
+  "perplexity": 21.3394
 }
