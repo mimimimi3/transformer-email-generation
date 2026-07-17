@@ -11,8 +11,6 @@ The final metrics of both the models are as follows:
 | Model | ROUGE-1 | ROUGE-2 | ROUGE-L | BLEU | BERTScore F1 | Test Loss | Perplexity |
 |---|--:|---:|---:|---:|---:|---:|---:|
 | T5-small | 0.3173 | 0.1755 | 0.3091 | 10.3159 | 0.8798 | 3.0606 | 21.3394 |
-
-| Model | ROUGE-1 | ROUGE-2 | ROUGE-L | BLEU | BERTScore F1 | Test Loss | Perplexity |
 | FLAN-T5-small | 0.3328 | 0.1811 | 0.3241 | 12.0934 | 0.8819 | 2.8305 | 16.9544 |
 
 These results suggest that FLAN-T5-small is better suited to the task of email subject generation.
