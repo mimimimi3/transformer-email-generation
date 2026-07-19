@@ -130,6 +130,19 @@ The final metrics of both the models are as follows:
 
 These results suggest that FLAN-T5-small is better suited to the task of email subject generation.
 
+### Email continuation generation:
+
+DistilGPT-2 was selected for email continuation because it is a lightweight decoder-only language model that is well suited to next-token prediction. The continuation setup splits each email body into an incomplete prompt and a held-out continuation, and compares prompt conditions such as body-only versus subject-and-body.
+
+The pretrained row below is the untouched DistilGPT-2 baseline on `body_only`. The fine-tuned row is from a shorter preliminary run (1 epoch, 2048 training examples).
+
+| Model | Stage | Condition | ROUGE-1 | ROUGE-2 | ROUGE-L | BLEU | BERTScore F1 | Test Loss | Perplexity |
+|---|---|---|--:|---:|---:|---:|---:|---:|---:|
+| DistilGPT-2 | Pretrained | body_only | 0.1434 | 0.0219 | 0.1220 | 2.0576 | 0.8201 | 3.7616 | 43.0177 |
+| DistilGPT-2 | Fine-tuned | body_only | 0.1543 | 0.0301 | 0.1279 | 2.4121 | 0.8155 | 3.1273 | 22.8127 |
+
+Fine-tuning lowered test loss and perplexity substantially (about 47% perplexity reduction versus the pretrained baseline), with small gains in ROUGE and BLEU. BERTScore stayed similar. These are encouraging preliminary continuation results; a full-data / multi-epoch run and the `subject_and_body` condition will be added next.
+
 
 ---
 Group 12:

@@ -514,6 +514,8 @@ def build_trainer(model, tokenizer, tokenized_dataset, config, output_dir):
         weight_decay=config["weight_decay"],
         num_train_epochs=config["num_train_epochs"],
         fp16=config["fp16"] and torch.cuda.is_available(),
+        # pin_memory only helps when moving batches to a GPU/accelerator.
+        dataloader_pin_memory=torch.cuda.is_available(),
         logging_dir=config.get("logging_dir"),
         logging_steps=25,
         report_to=config.get("report_to", "none"),
