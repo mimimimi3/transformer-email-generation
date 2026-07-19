@@ -6,7 +6,9 @@ WORKDIR /workdir
 COPY requirements-lock.txt ./
 # install dependencies
 RUN pip install --no-cache-dir -r requirements-lock.txt
-# copy scripts
-COPY src/ ./src/
+# copy configs folder
+COPY configs ./configs
+# copy source code folder
+COPY src ./src
 # run the command
 CMD ["python", "--version"]
