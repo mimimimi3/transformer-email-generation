@@ -35,6 +35,16 @@ Generate a continuation of an email based on the provided email body.
 
 This Hugging Face dataset is used because it is well-suited for this project, as it contains both email subject lines and email bodies.
 
+### Research and Selection of Methods
+T5-small and FLAN-T5-small are both T5-style transformer models used in this project and are well suited for email subject generation because they follow a text-to-text framework, enabling them to generate appropriate subject lines based on the content of an email body (Raffel et al., 2019; Chung et al., 2022).
+
+DistilGPT-2, another transformer model used in this project, is suitable for email continuation generation because it is an autoregressive language model designed to predict the next tokens in a sequence, making it effective for generating coherent text continuations (Hugging Face, 2023).
+
+The selected models meet the goals of this project by providing lightweight and reproducible models that specialize in email subject generation and email continuation generation.
+
+### Preliminary Experiments
+See the 'docs' fold for detailed information.
+
 ---
 
 ## Setup Instructions and Usage Examples:
