@@ -1,0 +1,52 @@
+# Dataset
+dataset_name: "postbot/aeslc_kw"
+body_column: "clean_email"
+subject_column: "subject_line"
+
+# Model
+model_checkpoint: "distilbert/distilgpt2"
+output_dir: "models/distilgpt2_continuation"
+results_dir: "outputs/distilgpt2_email_continuation"
+logging_dir: "outputs/logs/distilgpt2"
+
+# Experiment conditions:
+# - body_only: incomplete email body as prompt
+# - subject_and_body: subject + incomplete body as prompt
+# - both: run both conditions sequentially
+condition: "both"
+
+# Token / generation lengths
+max_length: 256
+max_new_tokens: 64
+
+# Training settings
+learning_rate: 0.00005
+train_batch_size: 4
+eval_batch_size: 4
+num_train_epochs: 3
+weight_decay: 0.01
+
+# Data cleaning / split quality filters
+min_email_chars: 40
+min_subject_chars: 2
+min_prompt_chars: 20
+min_continuation_chars: 20
+
+# Optional sample caps (null = use full split). Useful for smoke tests.
+max_train_samples: null
+max_eval_samples: null
+
+# Evaluation / output settings
+num_generate_samples: 64
+num_output_samples: 15
+compute_bertscore: true
+skip_pretrained_eval: false
+
+# Reproducibility
+seed: 42
+
+# GPU settings
+fp16: true
+
+# Logging
+report_to: "none"
