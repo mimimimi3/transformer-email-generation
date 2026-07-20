@@ -1,0 +1,126 @@
+{
+  "pretrained_t5_small": [
+    {
+      "index": 0,
+      "email_body": "Phillip, Could you please do me a favor? I would like to read your current title policy to see what it says about easements. You should have received a copy during your closing. I don't know how many pages it will be but let me know how you want to handle getting a copy made. I'll be happy to make the copy, or whatever makes it easy for you. Thanks,",
+      "reference_subject": "Huntley/question",
+      "generated_subject": ": Phillip, Could you please do me a favor? Phillip, Could you please do me a favor? Phillip, Could you please do me a favor? I would like to read your current title policy to see what it says"
+    },
+    {
+      "index": 1,
+      "email_body": "The following reports have been waiting for your approval for more than <NUMBER> days. Please review. Owner: James W Reitmeyer Report Name: JReitmeyer <NUMBER>/<NUMBER>/<NUMBER> Days In Mgr. Queue: <NUMBER>",
+      "reference_subject": "Expense Reports Awaiting Your Approval",
+      "generated_subject": ": NUMBER>/NUMBER>/NUMBER> Days In Mgr. Queue: NUMBER>"
+    },
+    {
+      "index": 2,
+      "email_body": "We have for the last couple of weeks started to compile the Re-start/Integration Plans for Netco. So far, we have primarily focussed on the mid/back plans where the technology requirements have been the driving factors. Several plans are in the final stages of completion including:- + Infrastructure Jenny Rub + Development Jay Webb + <COMPANY>Online Webb / Forster + HR David Oxley + Cash Management Tom Myers + Credit Debbie Brackett The rest will be completed shortly. We now need to focus on the commercial plans which have a slightly different focus. John and I would like to receive the plans \"Re-start/Integration\" plans by January 0th, <NUMBER> in order to go through them individually with each of you or in groups. The focus should be to ensure that we have as much of the business up and running in the shortest time possible. I have a suggested outline which you do not have to use but I thought it might help. Please decide within yourselves the areas you will cover together or individually. Customer Side + Customers Phase <NUMBER> - First Week (eg top <NUMBER>) Phase <NUMBER> - First Month (eg top <NUMBER>) Phase <NUMBER> - First Quarter (eg top <NUMBER>) + Action Plan Phase <NUMBER> Customers Phase <NUMBER> Customers Phase <NUMBER> Customers + Contracts by customers (pre-prepared with credit terms etc) + Customer visit schedule Product Side + List of Products Phase <NUMBER> - First Week Phase <NUMBER> - First Month Phase <NUMBER> - First Quarter Target Number of Transactions + Phase <NUMBER> + Phase <NUMBER> + Phase <NUMBER> IT transfer Louise",
+      "reference_subject": "Re-start/Integration Planning",
+      "generated_subject": ": NUMBER> - First Week (eg top NUMBER>) Phase NUMBER> - First Quarter (eg top NUMBER>) + Action Plan"
+    },
+    {
+      "index": 3,
+      "email_body": "Michelle Here are my very minor comments. However we still need to wait on any additions, based on meeting with SME's today. One concern is the firing of the learner who performs bad in the final two scenarios. Do we face any copyright issues using the CNN type themes? In addition, I think we need to stay clear of anything that remotely seems like California or anything that really happen with <COMPANY>? (i.e. So-cal Waha) In addition, comments on regulatory issues may be a problem (i.e. California Legislature). Sheri When you read all the scripts together and due to the similar mechanics being taught it appears very repetitious. Thus I do believe we need to maybe use a \"Dateline\" type theme for one, and a \"<NUMBER> Minute\" type theme for another scenario vice just the CNN type theme. In the last two scenarios can we include a promotion out of the associate program for the stellar performers (i.e. title change to manager)? Cheers Kirk",
+      "reference_subject": "RM Simulation Storyline Scripts - Ready for Legal Review",
+      "generated_subject": "Michelle Here are my very minor comments. I do believe we need to wait on any additions, based on meeting with SME's today. Michelle Here are my very minor comments. However we still need to wait on any additions"
+    },
+    {
+      "index": 4,
+      "email_body": "For purposes of an accelerated distribution from the PSA, a \"single sum distribution,\" in Section <NUMBER> means that a PSA account is distributed all at once, as distinguished from another form of payout as may have been selected by a participant in his or her deferral agreement. Section <NUMBER> is clear in that the account balance shall be determined as of the last day of the month preceding the date on which the Committee receives the written request of the Participant. A PSA account balance is reflected in shares of stock since the form of distribution is shares of stock. Additionally, any portion of a PSA balance attributable to deferral of restricted stock is administered under Sections <NUMBER> and <NUMBER> and Exhibit A of the Plan. This section is applicable now as we are accelerating the distribution of PSA balances created with deferrals of restricted stock. The Plan indicates that upon death, disability, retirement or termination, the share units are converted to shares which are issued to the executive according to the payment election made by the executive at the time of the deferral election. Therefore the distribution you will receive in shares is correct and we do not agree with your interpretation of the plan.",
+      "reference_subject": "Answer",
+      "generated_subject": ": This section is applicable now as we are accelerating the distribution of PSA balances created with deferrals of restricted stock. The Plan indicates that upon death, disability, retirement or termination, the share units are converted to"
+    },
+    {
+      "index": 5,
+      "email_body": "All: Attached you will find a list that reflects your seat assignments for Business Continuity Planning (BCP). These seats are located on the 00th and 00st Floors of <COMPANY> Center North (ECN). As previously communicated, you will report to these designated seats in the event of an outage in ECS. The exception to this is as follows: If your seat assignment is located on the 00st Floor, you will report to your original location that you occupied prior to your move into ECS. This will hold true until the Monday after Thanksgiving, as we will have the 00st floor seats set up at that time. Testing: Once you have moved to ECS, if you would like to test your BCP location, you will be able to test your seat for functionality every Thursday from <NUMBER>-0pm. Testing is not required, but is highly recommended. If anyone has any questions or concerns about these procedures, please feel free to contact me at any time. Regards,",
+      "reference_subject": "BCP Seat Assignments",
+      "generated_subject": ": All: Attached you will find a list that reflects your seat assignments for Business Continuity Planning (BCP). These seats are located on the 00th and 00st Floors of"
+    },
+    {
+      "index": 6,
+      "email_body": "As our last day is Friday, November 00th, we would love to toast the good times and special memories that we have shared with you over the past five years. Please join us at Teala's (W. Dallas) on Thursday, November 00th, beginning at 0pm. Looking forward to being with you, Lara and Janel Lara Leibman",
+      "reference_subject": "Farewell Drinks",
+      "generated_subject": "subject"
+    },
+    {
+      "index": 7,
+      "email_body": "Hi John, I was wondering if you had a chance to put together that slide for us. I know you are really busy and we appreciate your help. Thanks. Savita",
+      "reference_subject": "Slide for John Sheriff",
+      "generated_subject": "Hi John, I was wondering if you had chance to put together that slide for us. I know you are really busy and we appreciate your help."
+    },
+    {
+      "index": 8,
+      "email_body": "All, The below Analyst & Associate recruiting dates require <COMPANY> participation at Manager level at above. In order to resource each of your departments it is important to have <COMPANY>'s involvement and participation in the interviews and debrief sessions on Fantastic Friday and Super Saturday events. These de-brief sessions will allow you the opportunity to select candidates you wish to join your groups. The target is to assign potential candidates to business units and departments from the outset. As <COMPANY> has the highest percentage of A&A rotating in its business unit, the participation of <COMPANY> at interview should reflect this. Therefore, please encourage your direct reports and managers to participate in the below events in order to secure candidates for your business area. Associate Recruiting: Saturday November <NUMBER> Total - <NUMBER> Candidates for Interview Analyst Recruiting: Friday, November <NUMBER> Total - <NUMBER> Candidates for Interivew Associate Recruiting: Saturday, December <NUMBER> Total - <NUMBER> Candidates for Interview The above spreadsheet represents <COMPANY>'s particpation today which I believe highlights the need for much additional support in these efforts. Please confirm by return participation of your respective groups. Regards,",
+      "reference_subject": "URGENT - ENA Associates & Analysts",
+      "generated_subject": ": Recruiting: Saturday November NUMBER> Total - NUMBER> Candidates for Interview Analyst Recruiting: Friday, December NUMBER> Total - NUMBER"
+    },
+    {
+      "index": 9,
+      "email_body": "Late on October 00th, we received information about a nonspecific threat to the <COMPANY> Center. We communicated with law enforcement officials who found the threat unsubstantiated and without merit. Nonetheless we take all threats seriously and have increased the security presence at the <COMPANY> Center still further. Once again, if you observe suspicious behavior, please call security at <NUMBER>-<NUMBER>.",
+      "reference_subject": "Increased Security at Enron Center",
+      "generated_subject": ": Late on October 00th, we received information about a nonspecific threat to the COMPANY> Center. We communicated with law enforcement officials who found the threat unsubstantiated and without merit."
+    }
+  ],
+  "pretrained_flan_t5_small": [
+    {
+      "index": 0,
+      "email_body": "Phillip, Could you please do me a favor? I would like to read your current title policy to see what it says about easements. You should have received a copy during your closing. I don't know how many pages it will be but let me know how you want to handle getting a copy made. I'll be happy to make the copy, or whatever makes it easy for you. Thanks,",
+      "reference_subject": "Huntley/question",
+      "generated_subject": "PG&E"
+    },
+    {
+      "index": 1,
+      "email_body": "The following reports have been waiting for your approval for more than <NUMBER> days. Please review. Owner: James W Reitmeyer Report Name: JReitmeyer <NUMBER>/<NUMBER>/<NUMBER> Days In Mgr. Queue: <NUMBER>",
+      "reference_subject": "Expense Reports Awaiting Your Approval",
+      "generated_subject": "Days In Mgr. Reports Waiting for Your Approval"
+    },
+    {
+      "index": 2,
+      "email_body": "We have for the last couple of weeks started to compile the Re-start/Integration Plans for Netco. So far, we have primarily focussed on the mid/back plans where the technology requirements have been the driving factors. Several plans are in the final stages of completion including:- + Infrastructure Jenny Rub + Development Jay Webb + <COMPANY>Online Webb / Forster + HR David Oxley + Cash Management Tom Myers + Credit Debbie Brackett The rest will be completed shortly. We now need to focus on the commercial plans which have a slightly different focus. John and I would like to receive the plans \"Re-start/Integration\" plans by January 0th, <NUMBER> in order to go through them individually with each of you or in groups. The focus should be to ensure that we have as much of the business up and running in the shortest time possible. I have a suggested outline which you do not have to use but I thought it might help. Please decide within yourselves the areas you will cover together or individually. Customer Side + Customers Phase <NUMBER> - First Week (eg top <NUMBER>) Phase <NUMBER> - First Month (eg top <NUMBER>) Phase <NUMBER> - First Quarter (eg top <NUMBER>) + Action Plan Phase <NUMBER> Customers Phase <NUMBER> Customers Phase <NUMBER> Customers + Contracts by customers (pre-prepared with credit terms etc) + Customer visit schedule Product Side + List of Products Phase <NUMBER> - First Week Phase <NUMBER> - First Month Phase <NUMBER> - First Quarter Target Number of Transactions + Phase <NUMBER> + Phase <NUMBER> + Phase <NUMBER> IT transfer Louise",
+      "reference_subject": "Re-start/Integration Planning",
+      "generated_subject": "Netco Re-start/Integration Plans"
+    },
+    {
+      "index": 3,
+      "email_body": "Michelle Here are my very minor comments. However we still need to wait on any additions, based on meeting with SME's today. One concern is the firing of the learner who performs bad in the final two scenarios. Do we face any copyright issues using the CNN type themes? In addition, I think we need to stay clear of anything that remotely seems like California or anything that really happen with <COMPANY>? (i.e. So-cal Waha) In addition, comments on regulatory issues may be a problem (i.e. California Legislature). Sheri When you read all the scripts together and due to the similar mechanics being taught it appears very repetitious. Thus I do believe we need to maybe use a \"Dateline\" type theme for one, and a \"<NUMBER> Minute\" type theme for another scenario vice just the CNN type theme. In the last two scenarios can we include a promotion out of the associate program for the stellar performers (i.e. title change to manager)? Cheers Kirk",
+      "reference_subject": "RM Simulation Storyline Scripts - Ready for Legal Review",
+      "generated_subject": "SME Comments"
+    },
+    {
+      "index": 4,
+      "email_body": "For purposes of an accelerated distribution from the PSA, a \"single sum distribution,\" in Section <NUMBER> means that a PSA account is distributed all at once, as distinguished from another form of payout as may have been selected by a participant in his or her deferral agreement. Section <NUMBER> is clear in that the account balance shall be determined as of the last day of the month preceding the date on which the Committee receives the written request of the Participant. A PSA account balance is reflected in shares of stock since the form of distribution is shares of stock. Additionally, any portion of a PSA balance attributable to deferral of restricted stock is administered under Sections <NUMBER> and <NUMBER> and Exhibit A of the Plan. This section is applicable now as we are accelerating the distribution of PSA balances created with deferrals of restricted stock. The Plan indicates that upon death, disability, retirement or termination, the share units are converted to shares which are issued to the executive according to the payment election made by the executive at the time of the deferral election. Therefore the distribution you will receive in shares is correct and we do not agree with your interpretation of the plan.",
+      "reference_subject": "Answer",
+      "generated_subject": "PSA accelerated distribution of PSA balances created with deferrals of restricted stock"
+    },
+    {
+      "index": 5,
+      "email_body": "All: Attached you will find a list that reflects your seat assignments for Business Continuity Planning (BCP). These seats are located on the 00th and 00st Floors of <COMPANY> Center North (ECN). As previously communicated, you will report to these designated seats in the event of an outage in ECS. The exception to this is as follows: If your seat assignment is located on the 00st Floor, you will report to your original location that you occupied prior to your move into ECS. This will hold true until the Monday after Thanksgiving, as we will have the 00st floor seats set up at that time. Testing: Once you have moved to ECS, if you would like to test your BCP location, you will be able to test your seat for functionality every Thursday from <NUMBER>-0pm. Testing is not required, but is highly recommended. If anyone has any questions or concerns about these procedures, please feel free to contact me at any time. Regards,",
+      "reference_subject": "BCP Seat Assignments",
+      "generated_subject": "Seat Assignments for Business Continuity Planning (BCP)"
+    },
+    {
+      "index": 6,
+      "email_body": "As our last day is Friday, November 00th, we would love to toast the good times and special memories that we have shared with you over the past five years. Please join us at Teala's (W. Dallas) on Thursday, November 00th, beginning at 0pm. Looking forward to being with you, Lara and Janel Lara Leibman",
+      "reference_subject": "Farewell Drinks",
+      "generated_subject": "Lara and Janel Lara Leibman"
+    },
+    {
+      "index": 7,
+      "email_body": "Hi John, I was wondering if you had a chance to put together that slide for us. I know you are really busy and we appreciate your help. Thanks. Savita",
+      "reference_subject": "Slide for John Sheriff",
+      "generated_subject": "Slide for us"
+    },
+    {
+      "index": 8,
+      "email_body": "All, The below Analyst & Associate recruiting dates require <COMPANY> participation at Manager level at above. In order to resource each of your departments it is important to have <COMPANY>'s involvement and participation in the interviews and debrief sessions on Fantastic Friday and Super Saturday events. These de-brief sessions will allow you the opportunity to select candidates you wish to join your groups. The target is to assign potential candidates to business units and departments from the outset. As <COMPANY> has the highest percentage of A&A rotating in its business unit, the participation of <COMPANY> at interview should reflect this. Therefore, please encourage your direct reports and managers to participate in the below events in order to secure candidates for your business area. Associate Recruiting: Saturday November <NUMBER> Total - <NUMBER> Candidates for Interview Analyst Recruiting: Friday, November <NUMBER> Total - <NUMBER> Candidates for Interivew Associate Recruiting: Saturday, December <NUMBER> Total - <NUMBER> Candidates for Interview The above spreadsheet represents <COMPANY>'s particpation today which I believe highlights the need for much additional support in these efforts. Please confirm by return participation of your respective groups. Regards,",
+      "reference_subject": "URGENT - ENA Associates & Analysts",
+      "generated_subject": "Analyst & Associate Recruiting"
+    },
+    {
+      "index": 9,
+      "email_body": "Late on October 00th, we received information about a nonspecific threat to the <COMPANY> Center. We communicated with law enforcement officials who found the threat unsubstantiated and without merit. Nonetheless we take all threats seriously and have increased the security presence at the <COMPANY> Center still further. Once again, if you observe suspicious behavior, please call security at <NUMBER>-<NUMBER>.",
+      "reference_subject": "Increased Security at Enron Center",
+      "generated_subject": "Threat to the COMPANY> Center"
+    }
+  ]
+}

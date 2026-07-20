@@ -144,17 +144,34 @@ Uninformative patterns (e.g., text enclosed in angle brackets such as << >>), at
 
 ### Email subject generation: 
 
-T5-small was first implemented as a baseline because it is a lightweight sequence-to-sequence model. Preliminary experiments were conducted on a small subset of the dataset to compare T5-small to FLAN-T5-small. The Preliminary experiment results showed that FLAN-T5-small could perform better compared to T5-small. Both models were therefore trained on the full training dataset and evaluated on the test dataset, FLAN-T5-small outperformed T5-small across ROUGE, BLEU, BERTScore, test loss and perplexity. This boost in performance of FLAN-T5-small could be due to instruction tuning done on the model.
+T5-small was chosen for this task because it is a lightweight sequence-to-sequence model, well suited for email subject generation (Hugging Face, 2024).
+
+A baseline experiment was conducted using the original pretrained T5-small and FLAN-T5-small models, this experiment did not do any fine-tuning on the models using the email dataset, before testing them on a subset of the dataset. The results are shown below:
+
+The baseline was evaluated on 500 test examples from the dataset.
+
+| Model                    | ROUGE-1 | ROUGE-2 | ROUGE-L |   BLEU | BERTScore F1 | Avg. Generated Words | Test Loss | Perplexity |
+| ------------------------ | --------| -------| ---------| -------| -------------| ---------------------| ----------| -----------|
+| Pretrained T5-small      |  0.1071 |  0.0413 |  0.0963 | 0.9168 |       0.8315 |                27.29 |    6.1733 |   479.7625 |
+| Pretrained FLAN-T5-small |  0.2721 |  0.1409 |  0.2588 | 3.3766 |       0.8662 |                 8.14 |    2.9279 |    18.6875 |
+
+We can see from the above results that, the pretrained FLAN-T5-small model performed relatively better than the pretrained T5-small model. However, fine-tuning the models on the email dataset helped improve T5-small's performance greatly.
+
+Preliminary experiments were also conducted on a small subset of the dataset to compare T5-small to FLAN-T5-small. The Preliminary experiment fine-tuned the models on a subset of the dataset, results showed that FLAN-T5-small could perform better compared to T5-small. 
+
+Both models were therefore trained on the full training dataset and evaluated on the full test dataset, FLAN-T5-small outperformed T5-small across ROUGE, BLEU, BERTScore, test loss and perplexity. This boost in performance of FLAN-T5-small could be due to instruction tuning done on the model (“Google/Flan-T5-Small · Hugging Face,” 2024).
 
 The final metrics of both the models are as follows:
 
 
-| Model | ROUGE-1 | ROUGE-2 | ROUGE-L | BLEU | BERTScore F1 | Test Loss | Perplexity |
-|---|--:|---:|---:|---:|---:|---:|---:|
-| T5-small | 0.3173 | 0.1755 | 0.3091 | 10.3159 | 0.8798 | 3.0606 | 21.3394 |
-| FLAN-T5-small | 0.3328 | 0.1811 | 0.3241 | 12.0934 | 0.8819 | 2.8305 | 16.9544 |
+| Model        | ROUGE-1  | ROUGE-2 | ROUGE-L | BLEU    | BERTScore F1 | Test Loss | Perplexity |
+|--------------|----------|---------|---------|---------|--------------|-----------|------------|
+| T5-small     | 0.3173   | 0.1755  | 0.3091  | 10.3159   | 0.8798     | 3.0606    | 21.3394    |
+| FLAN-T5-small| 0.3328   | 0.1811  | 0.3241  | 12.0934   | 0.8819     | 2.8305    | 16.9544    |
 
 These results suggest that FLAN-T5-small is better suited to the task of email subject generation.
+
+We can also see that fine-tuning on the email dataset helped the models improve their perplexity, BLEU, BERTScore F1 and ROUGE-L scores. The BLEU score for FLAN-T5-small improved from 3.3766 to 12.0934 after fine tuning, while perplexity decreased from 18.6875 to 16.9544.
 
 ### Email continuation generation:
 
@@ -176,4 +193,6 @@ Group 12:
 - G. Wu
 - M. Zhang
 
-
+References:
+google-t5/t5-small · Hugging Face. (2024, March 5). Huggingface.co. https://huggingface.co/google-t5/t5-small
+google/flan-t5-small · Hugging Face. (2024). In huggingface.co. https://huggingface.co/google/flan-t5-small
