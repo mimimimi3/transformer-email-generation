@@ -1,0 +1,3 @@
+rouge1,rouge2,rougeL,bleu,bertscore_precision,bertscore_recall,bertscore_f1,average_generated_subject_words,test_loss,perplexity,model_name,model_checkpoint,task_prefix,test_examples
+0.1071,0.0413,0.0963,0.9168,0.8081,0.8571,0.8315,27.29,6.1733,479.7625,pretrained_t5_small,google-t5/t5-small,generate subject: ,500
+0.2721,0.1409,0.2588,3.3766,0.8588,0.8749,0.8662,8.14,2.9279,18.6875,pretrained_flan_t5_small,google/flan-t5-small,summarize this email as a subject line: ,500

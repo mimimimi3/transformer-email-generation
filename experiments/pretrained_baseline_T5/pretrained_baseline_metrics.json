@@ -1,0 +1,34 @@
+[
+  {
+    "rouge1": 0.1071,
+    "rouge2": 0.0413,
+    "rougeL": 0.0963,
+    "bleu": 0.9168,
+    "bertscore_precision": 0.8081,
+    "bertscore_recall": 0.8571,
+    "bertscore_f1": 0.8315,
+    "average_generated_subject_words": 27.29,
+    "test_loss": 6.1733,
+    "perplexity": 479.7625,
+    "model_name": "pretrained_t5_small",
+    "model_checkpoint": "google-t5/t5-small",
+    "task_prefix": "generate subject: ",
+    "test_examples": 500
+  },
+  {
+    "rouge1": 0.2721,
+    "rouge2": 0.1409,
+    "rougeL": 0.2588,
+    "bleu": 3.3766,
+    "bertscore_precision": 0.8588,
+    "bertscore_recall": 0.8749,
+    "bertscore_f1": 0.8662,
+    "average_generated_subject_words": 8.14,
+    "test_loss": 2.9279,
+    "perplexity": 18.6875,
+    "model_name": "pretrained_flan_t5_small",
+    "model_checkpoint": "google/flan-t5-small",
+    "task_prefix": "summarize this email as a subject line: ",
+    "test_examples": 500
+  }
+]
