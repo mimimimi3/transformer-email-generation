@@ -144,3 +144,17 @@ def prepare_dataset(preprocessed_dataset: dict,
     
     return tokenized_dataset, tokenizer
 
+def main():
+    # load the dataset
+    ds = load_dataset("postbot/aeslc_kw")
+    # clean data
+    ds_preprocessed = ds.map(data_preprocessing)
+    # combine clean body and clean subject
+    ds_preprocessed = ds_preprocessed.map(combine_body_subject)
+    # add instruction to clean email body
+    ds_preprocessed = ds_preprocessed.map(add_instruction)
+    # save the preprocessed dataset to disk
+    ds_preprocessed.save_to_disk('preprocessed_dataset')
+
+if __name__ == "__main__":
+    main()
