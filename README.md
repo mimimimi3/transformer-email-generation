@@ -99,32 +99,48 @@ docker run -it email-generation
 
 All scripts are located in the `src/` directory.
 
-- Fine-tune and evaluate the T5-small Model
+- Fine-tune, implement, evaluate the T5-small Model and save the output locally
 
 ```bash
-docker run -it <docker-image-name> python src/train_t5.py
+docker run -it -v $(pwd):/workdir <docker-image-name> python src/train_t5.py
 ```
 
 Example:
 
 ```bash
-docker run -it email-generation python src/train_t5.py
+docker run -it -v $(pwd):/workdir email-generation python src/train_t5.py
 ```
 
-- Fine-tune and evaluate the FLAN-T5-small Model
+- Fine-tune, implement, evaluate the FLAN-T5-small Model and save the output locally
 
 ```bash
-docker run -it <docker-image-name> python src/train_flan_t5.py
+docker run -it -v $(pwd):/workdir <docker-image-name> python src/train_flan_t5.py
 ```
 
 Example:
 
 ```bash
-docker run -it email-generation python src/train_flan_t5.py
+docker run -it -v $(pwd):/workdir email-generation python src/train_flan_t5.py
 ```
+
+- Fine-tune, implement, evaluate the DistilGPT2-small Model and save the output locally
+
+```bash
+docker run -it -v $(pwd):/workdir <docker-image-name> python src/train_distilgpt2.py
+```
+
+Example:
+
+```bash
+docker run -it -v $(pwd):/workdir email-generation python src/train_distilgpt2.py
+```
+
 
 ---
 ## Model Implementation
+
+### Dataset Preparation: 
+Uninformative patterns (e.g., text enclosed in angle brackets such as << >>), attachment filename lines, and extra whitespace were removed during data cleaning. The dataset is already split into training, validation, and test sets, making it ready for model traininig and evaluation.
 
 ### Email subject generation: 
 
@@ -156,4 +172,8 @@ Fine-tuning lowered test loss and perplexity substantially (about 47% perplexity
 
 ---
 Group 12:
+- L. Penumaka
+- G. Wu
+- M. Zhang
+
 
