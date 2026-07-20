@@ -57,7 +57,7 @@ Before running the project, make sure the following software is installed:
 - Git
 - Docker
 
-### Setup Instructions
+### Setup Instructions and Usage Examples
 
 *1. Clone the Repository*
 
