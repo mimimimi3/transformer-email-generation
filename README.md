@@ -36,9 +36,9 @@ Generate a continuation of an email based on the provided email body.
 This Hugging Face dataset is used because it is well-suited for this project, as it contains both email subject lines and email bodies.
 
 ### Research and Selection of Methods
-T5-small and FLAN-T5-small are both T5-style transformer models used in this project and are well suited for email subject generation because they follow a text-to-text framework, enabling them to generate appropriate subject lines based on the content of an email body (Raffel et al., 2019; Chung et al., 2022).
+T5-small and FLAN-T5-small are both T5-style encoder-decoder transformer models used in this project. They are well suited for email subject generation because they are designed for text-to-text generation tasks, enabling them to generate appropriate subject lines based on the content of an email body (Raffel et al., 2019; Chung et al., 2022).
 
-DistilGPT-2, another transformer model used in this project, is suitable for email continuation generation because it is an autoregressive language model designed to predict the next tokens in a sequence, making it effective for generating coherent text continuations (Hugging Face, 2023).
+DistilGPT-2 is a decoder-only transformer model used in this project. It's suitable for email continuation generation because it is an autoregressive language model designed to predict the next tokens in a sequence, making it effective for generating coherent text continuations (Hugging Face, 2023).
 
 The selected models meet the goals of this project by providing lightweight and reproducible models that specialize in email subject generation and email continuation generation.
 
@@ -135,9 +135,20 @@ Example:
 docker run -it -v $(pwd):/workdir email-generation python src/train_distilgpt2.py
 ```
 
+### Troubleshooting
+If you encounter issues using Docker, you can install the required dependencies locally by running:
+```bash
+pip install -r requirements-lock.txt
+```
+
+This will install all required Python packages for running the project without Docker.
+
 
 ---
-## Model Implementation
+## Model Implementation, Fine-tuning, and Evaluation
+
+### Framework Selection
+This project uses the Hugging Face Transformers library together with the PyTorch as the deep learning backend. Since the project uses pre-trained models from Hugging Face, the Transformers library was selected because it provides access to the selected pre-trained models, including T5-small, FLAN-T5-small, and DistilGPT-2. It also simplifies the process of model loading, tokenization, and fine-tuning. PyTorch is used to handle tensor operations, GPU acceleration, model training, and optimization.
 
 ### Dataset Preparation: 
 Uninformative patterns (e.g., text enclosed in angle brackets such as << >>), attachment filename lines, and extra whitespace were removed during data cleaning. The dataset is already split into training, validation, and test sets, making it ready for model traininig and evaluation.
