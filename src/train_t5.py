@@ -1,70 +1,38 @@
-import csv # Imports csv, this can save predictions in spreadsheet-style CSV files
+import csv  # Imports csv, this can save predictions in spreadsheet-style CSV files
 
-import json # Imports json, this can save metrics and samples as JSON files
+import json  # Imports json, this can save metrics and samples as JSON files
 
-import re # Imports re, this can clean text using regular expressions
+from pathlib import Path  # Imports Path which can create folders and file paths safely
 
-from pathlib import Path # Imports Path which can create folders and file paths safely
+import evaluate  # Imports evaluate which can calculate ROUGE, BLEU, and BERTScore
 
-import evaluate # Imports evaluate which can calculate ROUGE, BLEU, and BERTScore
+import numpy as np  # Imports numpy used for metric calculations which use arrays and averages
 
-import numpy as np # Imports numpy used for metric calculations which use arrays and averages
+import torch  # Imports torch as Hugging Face models run using PyTorch
 
-import torch # Imports torch as Hugging Face models run using PyTorch
-
-import yaml # Imports yaml which can read settings from configs/t5_config.yaml
-
-from datasets import load_dataset # Imports load_dataset which can load the Hugging Face dataset
+from datasets import load_dataset  # Imports load_dataset which can load the Hugging Face dataset
 
 # Imports the Hugging Face model, tokenizer, trainer, and training utilities
 from transformers import (
     # Loads T5-small as a sequence-to-sequence model.
     # This is used because email bodies have to be analyzed for email subject generation
     AutoModelForSeq2SeqLM,
-
     # Loads the tokenizer that works with T5-small
     AutoTokenizer,
-
     # Ensures input examples are padded inside each batch
     DataCollatorForSeq2Seq,
-
     # Trainer used for sequence-to-sequence models
     Seq2SeqTrainer,
-
     # Used to Store training settings like batch size, epochs, and learning rate
     Seq2SeqTrainingArguments,
-
     # Used to make results more reproducible by setting a random seed
     set_seed,
 )
 
 
-# Loads the previously setup YAML config file
-def load_config(config_path):
-    # Opens the YAML config file in read mode
-    with open(config_path, "r", encoding="utf-8") as file:
-        # Converts the YAML file into a Python dictionary
-        # This allows the rest of the program access settings
-        return yaml.safe_load(file)
-
-
-# Cleans the email body and subject text
-def clean_text(text):
-    # If the text is missing, this returns an empty string instead of crashing
-    if text is None:
-        return ""
-
-    # Converts the input to a string to avoid type errors
-    text = str(text)
-
-    # Replaces line breaks with spaces, which gives the model cleaner text
-    text = text.replace("\n", " ").replace("\r", " ")
-
-    # Replaces multiple spaces, tabs, or weird spacing with just one space
-    text = re.sub(r"\s+", " ", text)
-
-    # Removes the extra spaces from the start and end
-    return text.strip()
+from utils.config import load_config
+from utils.metrics_analysis import classify_error, rough_rouge_l_f1
+from utils.text_cleaning import clean_text
 
 
 # Loads, cleans, filters, and formats the full dataset
@@ -97,7 +65,8 @@ def prepare_dataset(config):
         if missing_columns:
             raise ValueError(
                 f"The {split_name} split is missing required columns, they are: "
-                f"{sorted(missing_columns)}")
+                f"{sorted(missing_columns)}"
+            )
 
     # Defines process of converting one raw dataset row into a T5 training example
     def format_example(example):
@@ -111,13 +80,10 @@ def prepare_dataset(config):
         return {
             # This is the input that T5 receives
             "input_text": config["task_prefix"] + email_body,
-
             # This is the target output T5 learns to generate
             "target_text": subject,
-
             # This stores the cleaned email body for later output inspection
             "raw_email": email_body,
-
             # This stores the cleaned original email subject for comparison
             "reference_subject": subject,
         }
@@ -139,8 +105,10 @@ def prepare_dataset(config):
     # Confirms that each split still contains examples after filtering
     for split_name in ("train", "validation", "test"):
         if len(dataset[split_name]) == 0:
-            raise ValueError(f"The {split_name} split is empty after filtering. "
-                "Reduce min_email_chars or min_subject_chars.")
+            raise ValueError(
+                f"The {split_name} split is empty after filtering. "
+                "Reduce min_email_chars or min_subject_chars."
+            )
 
     # Creates the processed data folder in case it does not already exist
     Path("data/processed").mkdir(parents=True, exist_ok=True)
@@ -150,14 +118,16 @@ def prepare_dataset(config):
         # Saves a maximum of 5 formatted training examples
         for example in dataset["train"].select(range(min(5, len(dataset["train"])))):
             # Converts the preview example into JSON text
-            line = json.dumps({
+            line = json.dumps(
+                {
                     # Saves the exact input text used by the model
                     "input_text": example["input_text"],
-
                     # Saves the exact target subject line which is used for training
-                    "target_text": example["target_text"],},
+                    "target_text": example["target_text"],
+                },
                 # Keeps the special characters readable instead of replacing them with a plain text code
-                ensure_ascii=False,)
+                ensure_ascii=False,
+            )
 
             # Outputs one JSON example per line
             file.write(line + "\n")
@@ -180,20 +150,24 @@ def tokenize_dataset(dataset, tokenizer, config):
     # Defines a function to tokenize a batch of examples
     def tokenize_batch(batch):
         # Tokenizes the input email text
-        model_inputs = tokenizer(batch["input_text"], # Uses the formatted input text
-
+        model_inputs = tokenizer(
+            batch["input_text"],  # Uses the formatted input text
             # Limits the email input length, according to the setting in the config file
             max_length=config["max_input_length"],
-
             # Cuts off inputs that are too long
-            truncation=True,)
+            truncation=True,
+        )
 
         # Tokenizes the target subject lines
-        labels = tokenizer(text_target=batch["target_text"], # Tells Hugging Face these are output labels, not input text
-
-            max_length=config["max_target_length"], # Limits the generated subject length
-
-            truncation=True,) # Cuts off target subjects that are too long
+        labels = tokenizer(
+            text_target=batch[
+                "target_text"
+            ],  # Tells Hugging Face these are output labels, not input text
+            max_length=config[
+                "max_target_length"
+            ],  # Limits the generated subject length
+            truncation=True,
+        )  # Cuts off target subjects that are too long
 
         # Stores the target token IDs as "labels", to be used for supervised training
         model_inputs["labels"] = labels["input_ids"]
@@ -208,16 +182,15 @@ def tokenize_dataset(dataset, tokenizer, config):
     tokenized_dataset = dataset.map(
         # Uses the tokenize_batch function defined above
         tokenize_batch,
-
         # Processes the examples in batches for speed
         batched=True,
-
         # Removes old text columns, as the model only needs token IDs
         remove_columns=columns_to_remove,
     )
 
     # Returns the tokenized dataset
     return tokenized_dataset
+
 
 # Cleans generated token IDs before decoding them into text
 def clean_prediction_ids(predictions, tokenizer):
@@ -236,6 +209,7 @@ def clean_prediction_ids(predictions, tokenizer):
 
     # Converts token IDs into normal integer format
     return predictions.astype(np.int64)
+
 
 # Defines the ROUGE metric function used during validation while training
 # ROUGE is the metric used to compare generated text with a human written reference
@@ -301,6 +275,7 @@ def compute_metrics_builder(tokenizer):
     # Returns the metric function to the Trainer
     return compute_metrics
 
+
 # Builds savable rows using predictions returned by trainer.predict()
 def build_prediction_rows(prediction_output, tokenizer, raw_dataset):
     # Gets the generated token IDs
@@ -315,7 +290,8 @@ def build_prediction_rows(prediction_output, tokenizer, raw_dataset):
 
     generated_subjects = tokenizer.batch_decode(
         predictions,
-        skip_special_tokens=True,)
+        skip_special_tokens=True,
+    )
 
     # Creates rows for saving and error analysis
     prediction_rows = []
@@ -357,10 +333,8 @@ def compute_final_metrics(prediction_rows, config):
     rouge_result = rouge.compute(
         # Model-generated subject lines.
         predictions=generated_subjects,
-
         # Original subject lines for reference
         references=reference_subjects,
-
         # Using stemming for fairer word matching
         use_stemmer=True,
     )
@@ -380,10 +354,9 @@ def compute_final_metrics(prediction_rows, config):
     # Computes BLEU
     bleu_result = bleu.compute(
         # Model-generated subject lines
-        predictions = generated_subjects,
-
+        predictions=generated_subjects,
         # SacreBLEU needs each reference to be inside its own list
-        references = [[reference] for reference in reference_subjects],
+        references=[[reference] for reference in reference_subjects],
     )
 
     # Saves BLEU score
@@ -395,19 +368,23 @@ def compute_final_metrics(prediction_rows, config):
         bertscore = evaluate.load("bertscore")
 
         # Computes BERTScore
-        bertscore_result = bertscore.compute(predictions = generated_subjects, # Model-generated subject lines
-
+        bertscore_result = bertscore.compute(
+            predictions=generated_subjects,  # Model-generated subject lines
             # Original reference subject lines
-            references = reference_subjects,
-
+            references=reference_subjects,
             # Tells BERTScore that the language is English
-            lang = "en",)
+            lang="en",
+        )
 
         # Saves the average BERTScore precision
-        final_metrics["bertscore_precision"] = round(float(np.mean(bertscore_result["precision"])), 4)
+        final_metrics["bertscore_precision"] = round(
+            float(np.mean(bertscore_result["precision"])), 4
+        )
 
         # Saves the average BERTScore recall
-        final_metrics["bertscore_recall"] = round(float(np.mean(bertscore_result["recall"])), 4)
+        final_metrics["bertscore_recall"] = round(
+            float(np.mean(bertscore_result["recall"])), 4
+        )
 
         # Saves the average BERTScore F1
         final_metrics["bertscore_f1"] = round(float(np.mean(bertscore_result["f1"])), 4)
@@ -416,109 +393,13 @@ def compute_final_metrics(prediction_rows, config):
     generated_lengths = [len(text.split()) for text in generated_subjects]
 
     # Saves the average generated subject length
-    final_metrics["average_generated_subject_words"] = round(float(np.mean(generated_lengths)), 2)
+    final_metrics["average_generated_subject_words"] = round(
+        float(np.mean(generated_lengths)), 2
+    )
 
     # Returns all final metrics
     return final_metrics
 
-
-# Calculates the longest common subsequence length, used for simple error analysis
-# A longer common subsequence means the generated subject is more similar to the reference
-def lcs_length(words_a, words_b):
-    # Creates a table with one extra row and column
-    table = [[0] * (len(words_b) + 1) for _ in range(len(words_a) + 1)]
-
-    # Loops through words in the generated subject
-    for i in range(1, len(words_a) + 1):
-        # Loops through words in the reference subject
-        for j in range(1, len(words_b) + 1):
-            # Checks if the two current words match
-            if words_a[i - 1] == words_b[j - 1]:
-                # Extends the previous matching sequence
-                table[i][j] = table[i - 1][j - 1] + 1
-
-            # If the words do not match, keeps the best previous score
-            else:
-                # Chooses the better score from the left or above
-                table[i][j] = max(table[i - 1][j], table[i][j - 1])
-
-    # Returns the final longest common subsequence length
-    return table[-1][-1]
-
-# Converts text into normalized words for rough error analysis
-def normalize_words(text):
-    # Converts text to lowercase
-    text = text.lower()
-
-    # Replaces punctuation with spaces
-    text = re.sub(r"[^\w\s]", " ", text)
-
-    # Replaces repeated whitespace with one space
-    text = re.sub(r"\s+", " ", text)
-
-    # Splits the cleaned text into individual words
-    return text.strip().split()
-
-# Computes a rough per-example ROUGE-L-style F1 score
-def rough_rouge_l_f1(prediction, reference):
-
-    # Normalizes generated and reference subjects
-    pred_words = normalize_words(prediction)
-    ref_words = normalize_words(reference)
-
-    # Returns zero if either text is empty
-    if len(pred_words) == 0 or len(ref_words) == 0:
-        return 0.0
-
-    # Computes the longest common subsequence length
-    lcs = lcs_length(pred_words, ref_words)
-
-    # Computes the precision-like overlap
-    precision = lcs / len(pred_words)
-
-    # Computes the recall-like overlap
-    recall = lcs / len(ref_words)
-
-    # Avoids division by zero.
-    if precision + recall == 0:
-        return 0.0
-
-    # Returns an F1-style score
-    return 2 * precision * recall / (precision + recall)
-
-
-# Assigns a simple error category to each generated subject
-# This helps identify errors and their frequency
-def classify_error(generated_subject, reference_subject, rough_score):
-    # Removes surrounding spaces for reliable comparisons
-    generated_clean = generated_subject.strip()
-    reference_clean = reference_subject.strip()
-
-    # Identifies empty generations
-    if generated_clean == "":
-        return "Generated output is empty"
-
-    # Identifies outputs that exactly match the reference subject
-    if generated_clean.lower() == reference_clean.lower():
-        return "Generated output is an exact match with the reference text"
-
-    # Counts words in the generated subject
-    word_count = len(generated_clean.split())
-
-    # Identifies outputs that are likely too short
-    if word_count <= 1:
-        return "Generated output too short"
-
-    # Identifies outputs that are likely too long for a subject line
-    if word_count > 12:
-        return "Generated output too long"
-
-    # Identifies outputs that have very low overlap with the reference subject
-    if rough_score < 0.15:
-        return "Generated output has low overlap with reference"
-
-    # Otherwise, marks the example for further review
-    return "Generated output needs manual review"
 
 # Saves predictions, readable samples, metrics, and error examples
 def save_outputs(prediction_rows, final_metrics, test_results, config):
@@ -537,7 +418,9 @@ def save_outputs(prediction_rows, final_metrics, test_results, config):
         row["rough_rouge_l_f1"] = round(score, 4)
 
         # Stores the simple error category
-        row["error_type"] = classify_error(row["generated_subject"], row["reference_subject"], score)
+        row["error_type"] = classify_error(
+            row["generated_subject"], row["reference_subject"], score
+        )
 
     # Defines the CSV file path for all predictions
     predictions_csv_path = output_dir / "t5_subject_predictions.csv"
@@ -629,16 +512,19 @@ def save_outputs(prediction_rows, final_metrics, test_results, config):
 
     # Opens the JSON sample file
     with open(samples_json_path, "w", encoding="utf-8") as file:
-
         # Save selected prediction rows as formatted JSON.
-        json.dump(prediction_rows[:num_samples],
-        file,
-        indent=2,
-        ensure_ascii=False,)
+        json.dump(
+            prediction_rows[:num_samples],
+            file,
+            indent=2,
+            ensure_ascii=False,
+        )
 
     # Retrieves test loss from trainer.predict()
-    test_loss = test_results.get("test_loss",
-        test_results.get("eval_loss"),)
+    test_loss = test_results.get(
+        "test_loss",
+        test_results.get("eval_loss"),
+    )
 
     # Saves test loss only when it is available
     if test_loss is not None:
@@ -647,7 +533,7 @@ def save_outputs(prediction_rows, final_metrics, test_results, config):
 
         # Saves test loss
         final_metrics["test_loss"] = round(test_loss_value, 4)
-    
+
         # Calculates perplexity from test loss
         final_metrics["perplexity"] = round(float(np.exp(test_loss_value)), 4)
 
@@ -658,7 +544,12 @@ def save_outputs(prediction_rows, final_metrics, test_results, config):
     with open(metrics_path, "w", encoding="utf-8") as file:
         # Save metrics as formatted JSON.
         # Keeps non-English text readable
-        json.dump(final_metrics, file, indent=2, ensure_ascii=False,)
+        json.dump(
+            final_metrics,
+            file,
+            indent=2,
+            ensure_ascii=False,
+        )
 
     # Prints where predictions were saved
     print(f"Saved predictions to {predictions_csv_path}")
@@ -706,7 +597,6 @@ def main():
     data_collator = DataCollatorForSeq2Seq(
         # Use the tokenizer for padding rules.
         tokenizer=tokenizer,
-
         # Uses the model to handle sequence-to-sequence labels correctly
         model=model,
     )
@@ -715,58 +605,40 @@ def main():
     training_args = Seq2SeqTrainingArguments(
         # Folder where model checkpoints and final weights are saved.
         output_dir=config["output_dir"],
-
         # Evaluates once after every epoch
         eval_strategy="epoch",
-
         # Saves a checkpoint once after every epoch
         save_strategy="epoch",
-
         # Retrieves learning rate from the config file.
         learning_rate=config["learning_rate"],
-
         # Retrieves training batch size from the config file.
         per_device_train_batch_size=config["train_batch_size"],
-
         # Retrieves evaluation batch size from the config file.
         per_device_eval_batch_size=config["eval_batch_size"],
-
         # Retrieves weight decay from the config file.
         weight_decay=config["weight_decay"],
-
         # Retrieves number of full passes through the training dataset.
         num_train_epochs=config["num_train_epochs"],
-
         # Generates text during evaluation so ROUGE can be calculated
         predict_with_generate=True,
-
         # Retrieves maximum generated subject length during evaluation
         generation_max_length=config["max_target_length"],
-
         # Beam search setting during evaluation.
         generation_num_beams=config["num_beams"],
-
         # Uses mixed precision only if enabled and CUDA is available
         fp16=config["fp16"] and torch.cuda.is_available(),
-
         # Folder where logs are saved.
         logging_dir=config["logging_dir"],
-
         # Prints training logs every 25 steps
         logging_steps=25,
-
         # Disables external logging services such as Weights & Biases
         report_to=config["report_to"],
-
         # Keeps only two checkpoints to save disk space
         save_total_limit=2,
-
         # Reloads the best checkpoint when training finishes
         load_best_model_at_end=True,
-
         # Uses ROUGE-L to decide which checkpoint is best
         metric_for_best_model="rougeL",
-
         # Higher ROUGE-L is better.
         greater_is_better=True,
     )
@@ -775,22 +647,16 @@ def main():
     trainer = Seq2SeqTrainer(
         # Model to fine-tune
         model=model,
-
         # Training settings
         args=training_args,
-
         # Full tokenized training split
         train_dataset=tokenized_dataset["train"],
-
         # Full tokenized validation split
         eval_dataset=tokenized_dataset["validation"],
-
         # Supplies the tokenizer as the Trainer's processing class
-         processing_class = tokenizer,
-
+        processing_class=tokenizer,
         # Data collator used for batch padding
         data_collator=data_collator,
-
         # ROUGE metric function used during validation
         compute_metrics=compute_metrics_builder(tokenizer),
     )
@@ -819,9 +685,11 @@ def main():
     tokenizer.save_pretrained(config["output_dir"])
 
     # Combines the generated predictions with the original test examples
-    prediction_rows = build_prediction_rows(prediction_output,
+    prediction_rows = build_prediction_rows(
+        prediction_output,
         tokenizer,
-        raw_dataset,)
+        raw_dataset,
+    )
 
     # Computes the final ROUGE, BLEU, BERTScore, and length metrics.
     final_metrics = compute_final_metrics(prediction_rows, config)

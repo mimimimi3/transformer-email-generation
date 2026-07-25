@@ -11,14 +11,12 @@ import argparse
 import csv
 import json
 import math
-import re
 from dataclasses import dataclass
 from pathlib import Path
 
 import evaluate
 import numpy as np
 import torch
-import yaml
 from datasets import load_dataset
 from transformers import (
     AutoModelForCausalLM,
@@ -29,20 +27,14 @@ from transformers import (
     set_seed,
 )
 
-# Supported prompt conditions for the research question comparing body-only vs
-# subject + body context for continuation quality.
-CONDITIONS = ("body_only", "subject_and_body")
-
-# Explicit markers make it easier to separate prompt text from model generations.
-CONTINUATION_MARKER = "\nContinuation:"
-EMAIL_MARKER = "Email:"
-SUBJECT_MARKER = "Subject:"
-
-
-def load_config(config_path):
-    """Loads project settings from the YAML config file."""
-    with open(config_path, "r", encoding="utf-8") as file:
-        return yaml.safe_load(file)
+from utils.config import load_config
+from utils.continuation import (
+    CONDITIONS,
+    build_prompt_text,
+    extract_generated_continuation,
+    split_email_body,
+)
+from utils.text_cleaning import clean_text
 
 
 def parse_args():
@@ -93,70 +85,6 @@ def apply_cli_overrides(config, args):
     return config
 
 
-def clean_text(text):
-    """Normalizes email / subject text before splitting and prompting."""
-    if text is None:
-        return ""
-
-    text = str(text)
-    # Remove AESLC-style forwarded markers and attachment filename lines.
-    text = re.sub(r"<<.*?>>", "", text)
-    text = re.sub(
-        r"[^\n]*\.(doc|docx|xls|xlsx|pdf|ppt|pptx|csv|zip|jpg|jpeg|gif)",
-        "",
-        text,
-        flags=re.IGNORECASE,
-    )
-    text = text.replace("\r", "\n")
-    text = re.sub(r"[ \t]+", " ", text)
-    text = re.sub(r"\n+", "\n", text)
-    return text.strip()
-
-
-def split_email_body(email_body):
-    """Split a cleaned email into an incomplete draft and a held-out continuation.
-
-    The split is deterministic (character midpoint) so train / validation / test
-    examples are reproducible. Prefer a nearby whitespace boundary so we do not
-    cut through the middle of a word when possible.
-    """
-    midpoint = len(email_body) // 2
-    if midpoint <= 0 or midpoint >= len(email_body):
-        return email_body, ""
-
-    # Search a small window around the midpoint for a cleaner split point.
-    window_start = max(0, midpoint - 40)
-    window_end = min(len(email_body), midpoint + 40)
-    window = email_body[window_start:window_end]
-
-    whitespace_offsets = [index for index, char in enumerate(window) if char.isspace()]
-    if whitespace_offsets:
-        best_local = min(
-            whitespace_offsets,
-            key=lambda index: abs((window_start + index) - midpoint),
-        )
-        # +1 keeps the whitespace with the prompt side of the split.
-        split_at = window_start + best_local + 1
-    else:
-        split_at = midpoint
-
-    prompt = email_body[:split_at].strip()
-    continuation = email_body[split_at:].strip()
-    return prompt, continuation
-
-
-def build_prompt_text(condition, subject, email_prompt):
-    """Formats the incomplete email into the condition-specific model prompt."""
-    if condition == "body_only":
-        return f"{EMAIL_MARKER}\n{email_prompt}{CONTINUATION_MARKER}"
-
-    if condition == "subject_and_body":
-        # Subject context is the only difference between the two experiment arms.
-        return f"{SUBJECT_MARKER}\n{subject}\n{EMAIL_MARKER}\n{email_prompt}{CONTINUATION_MARKER}"
-
-    raise ValueError(f"Unknown condition: {condition}")
-
-
 def prepare_continuation_dataset(config, condition):
     """Loads, cleans, filters, and formats prompt / continuation pairs."""
     print(f"Loading dataset for condition '{condition}'...")
@@ -177,8 +105,16 @@ def prepare_continuation_dataset(config, condition):
             raise ValueError(f"The {split_name} split is missing required columns: {sorted(missing_columns)}")
 
     def format_example(example):
-        email_body = clean_text(example[body_column])
-        subject = clean_text(example[subject_column])
+        email_body = clean_text(
+            example[body_column],
+            strip_artifacts=True,
+            preserve_newlines=True,
+        )
+        subject = clean_text(
+            example[subject_column],
+            strip_artifacts=True,
+            preserve_newlines=True,
+        )
         email_prompt, continuation = split_email_body(email_body)
         prompt_text = build_prompt_text(condition, subject, email_prompt)
 
@@ -373,26 +309,6 @@ def safe_perplexity(loss_value):
         return float("inf")
 
     return round(perplexity, 4)
-
-
-def extract_generated_continuation(decoded_text, prompt_text):
-    """Removes the prompt from decoded generation so metrics score only new text."""
-    text = decoded_text.strip()
-    prompt = prompt_text.strip()
-
-    if text.startswith(prompt):
-        continuation = text[len(prompt) :].strip()
-    elif CONTINUATION_MARKER in text:
-        continuation = text.split(CONTINUATION_MARKER, maxsplit=1)[1].strip()
-    else:
-        continuation = text
-
-    # If the model starts inventing a new Email/Subject section, cut it off.
-    for marker in (EMAIL_MARKER, SUBJECT_MARKER, CONTINUATION_MARKER.strip()):
-        if marker in continuation:
-            continuation = continuation.split(marker, maxsplit=1)[0].strip()
-
-    return continuation
 
 
 def compute_generation_metrics(prediction_rows, compute_bertscore=True):

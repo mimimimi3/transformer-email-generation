@@ -1,12 +1,12 @@
 import json
-import re
 from pathlib import Path
 
 import torch
-import yaml
 from datasets import load_dataset
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
+from utils.config import load_config
+from utils.text_cleaning import clean_text
 
 # Finds the main project folder
 PROJECT_FOLDER = Path(__file__).resolve().parents[1]
@@ -16,31 +16,10 @@ CONFIG_FILE = PROJECT_FOLDER / "configs/flan_t5_config.yaml"
 OUTPUT_FOLDER = PROJECT_FOLDER / "outputs" / "flan_t5_subject_generation"
 
 # Public Hugging Face model repository
-MODEL_REPOSITORY = (
-    "deva-penumaka/flan-t5-email-subject-generator"
-)
+MODEL_REPOSITORY = "deva-penumaka/flan-t5-email-subject-generator"
 
 # Number of examples
 NUMBER_OF_SAMPLES = 10
-
-def clean_text(text):
-    """
-    Removes line breaks and extra spaces from text
-    """
-
-    if text is None:
-        return ""
-
-    text = str(text)
-
-    # Replaces line breaks with spaces
-    text = text.replace("\n", " ")
-    text = text.replace("\r", " ")
-
-    # Replaces repeated spaces with one space
-    text = re.sub(r"\s+", " ", text)
-
-    return text.strip()
 
 
 def main():
@@ -48,8 +27,7 @@ def main():
 
     print("Loading the configuration file...")
 
-    with open(CONFIG_FILE, "r", encoding="utf-8") as file:
-        config = yaml.safe_load(file)
+    config = load_config(CONFIG_FILE)
 
     # Creates the outputs folder
 
@@ -62,15 +40,11 @@ def main():
 
     print("Loading the tokenizer from Hugging Face...")
 
-    tokenizer = AutoTokenizer.from_pretrained(
-        MODEL_REPOSITORY
-    )
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_REPOSITORY)
 
     print("Loading fine-tuned model from Hugging Face...")
 
-    model = AutoModelForSeq2SeqLM.from_pretrained(
-        MODEL_REPOSITORY
-    )
+    model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_REPOSITORY)
 
     # Uses the GPU when one is available
     if torch.cuda.is_available():
@@ -106,13 +80,9 @@ def main():
     print("Selecting 10 valid test examples...")
 
     for dataset_index, example in enumerate(test_dataset):
-        email_body = clean_text(
-            example[body_column]
-        )
+        email_body = clean_text(example[body_column])
 
-        reference_subject = clean_text(
-            example[target_column]
-        )
+        reference_subject = clean_text(example[target_column])
 
         # Uses the same filtering rules used during training
         if len(email_body) < config["min_email_chars"]:
@@ -122,10 +92,7 @@ def main():
             continue
 
         # Adds the same prefix that was used during training
-        input_text = (
-            config["task_prefix"]
-            + email_body
-        )
+        input_text = config["task_prefix"] + email_body
 
         selected_samples.append(
             {
@@ -140,16 +107,11 @@ def main():
         if len(selected_samples) == NUMBER_OF_SAMPLES:
             break
 
-    print(
-        f"Selected {len(selected_samples)} examples."
-    )
+    print(f"Selected {len(selected_samples)} examples.")
 
     # Converts the 10 inputs into model tokens
 
-    input_texts = [
-        sample["input_text"]
-        for sample in selected_samples
-    ]
+    input_texts = [sample["input_text"] for sample in selected_samples]
 
     model_inputs = tokenizer(
         input_texts,
@@ -160,10 +122,7 @@ def main():
     )
 
     # Move every input tensor to the CPU or GPU
-    model_inputs = {
-        name: tensor.to(device)
-        for name, tensor in model_inputs.items()
-    }
+    model_inputs = {name: tensor.to(device) for name, tensor in model_inputs.items()}
 
     # Generates the email subjects
 
@@ -193,12 +152,8 @@ def main():
             "sample_number": index + 1,
             "dataset_index": sample["dataset_index"],
             "email_body": sample["email_body"],
-            "reference_subject": sample[
-                "reference_subject"
-            ],
-            "generated_subject": generated_subjects[
-                index
-            ].strip(),
+            "reference_subject": sample["reference_subject"],
+            "generated_subject": generated_subjects[index].strip(),
         }
 
         results.append(result)
@@ -210,10 +165,7 @@ def main():
     for result in results:
         sample_number = result["sample_number"]
 
-        output_file = (
-            OUTPUT_FOLDER
-            / f"flan_t5_sample_{sample_number:03d}.txt"
-        )
+        output_file = OUTPUT_FOLDER / f"flan_t5_sample_{sample_number:03d}.txt"
 
         output_text = (
             f"SAMPLE {sample_number}\n"
@@ -233,10 +185,7 @@ def main():
 
     # Saves all results in one JSON file
 
-    json_file = (
-        OUTPUT_FOLDER
-        / "flan_t5_generated_samples.json"
-    )
+    json_file = OUTPUT_FOLDER / "flan_t5_generated_samples.json"
 
     with open(
         json_file,
@@ -252,10 +201,7 @@ def main():
 
     # Saves the required description file
 
-    description_file = (
-        OUTPUT_FOLDER
-        / "README_model_outputs.txt"
-    )
+    description_file = OUTPUT_FOLDER / "README_model_outputs.txt"
 
     description = f"""
 FLAN-T5 Email Subject Generation Demonstration

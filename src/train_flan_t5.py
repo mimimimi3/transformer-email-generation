@@ -2,7 +2,6 @@ import csv # Imports csv, this can save predictions in spreadsheet-style CSV fil
 
 import json # Imports json, this can save metrics and samples as JSON files
 
-import re # Imports re, this can clean text using regular expressions
 
 from pathlib import Path # Imports Path which can create folders and file paths safely
 
@@ -11,8 +10,6 @@ import evaluate # Imports evaluate which can calculate ROUGE, BLEU, and BERTScor
 import numpy as np # Imports numpy used for metric calculations which use arrays and averages
 
 import torch # Imports torch as Hugging Face models run using PyTorch
-
-import yaml # Imports yaml which can read settings from configs/FLAN-T5.yaml
 
 from datasets import load_dataset # Imports load_dataset which can load the Hugging Face dataset
 
@@ -38,33 +35,9 @@ from transformers import (
     set_seed,
 )
 
-
-# Loads the previously setup YAML config file
-def load_config(config_path):
-    # Opens the YAML config file in read mode
-    with open(config_path, "r", encoding="utf-8") as file:
-        # Converts the YAML file into a Python dictionary
-        # This allows the rest of the program access settings
-        return yaml.safe_load(file)
-
-
-# Cleans the email body and subject text
-def clean_text(text):
-    # If the text is missing, this returns an empty string instead of crashing
-    if text is None:
-        return ""
-
-    # Converts the input to a string to avoid type errors
-    text = str(text)
-
-    # Replaces line breaks with spaces, which gives the model cleaner text
-    text = text.replace("\n", " ").replace("\r", " ")
-
-    # Replaces multiple spaces, tabs, or weird spacing with just one space
-    text = re.sub(r"\s+", " ", text)
-
-    # Removes the extra spaces from the start and end
-    return text.strip()
+from utils.config import load_config
+from utils.metrics_analysis import classify_error, rough_rouge_l_f1
+from utils.text_cleaning import clean_text
 
 
 # Loads, cleans, filters, and formats the full dataset
@@ -421,104 +394,6 @@ def compute_final_metrics(prediction_rows, config):
     # Returns all final metrics
     return final_metrics
 
-
-# Calculates the longest common subsequence length, used for simple error analysis
-# A longer common subsequence means the generated subject is more similar to the reference
-def lcs_length(words_a, words_b):
-    # Creates a table with one extra row and column
-    table = [[0] * (len(words_b) + 1) for _ in range(len(words_a) + 1)]
-
-    # Loops through words in the generated subject
-    for i in range(1, len(words_a) + 1):
-        # Loops through words in the reference subject
-        for j in range(1, len(words_b) + 1):
-            # Checks if the two current words match
-            if words_a[i - 1] == words_b[j - 1]:
-                # Extends the previous matching sequence
-                table[i][j] = table[i - 1][j - 1] + 1
-
-            # If the words do not match, keeps the best previous score
-            else:
-                # Chooses the better score from the left or above
-                table[i][j] = max(table[i - 1][j], table[i][j - 1])
-
-    # Returns the final longest common subsequence length
-    return table[-1][-1]
-
-# Converts text into normalized words for rough error analysis
-def normalize_words(text):
-    # Converts text to lowercase
-    text = text.lower()
-
-    # Replaces punctuation with spaces
-    text = re.sub(r"[^\w\s]", " ", text)
-
-    # Replaces repeated whitespace with one space
-    text = re.sub(r"\s+", " ", text)
-
-    # Splits the cleaned text into individual words
-    return text.strip().split()
-
-# Computes a rough per-example ROUGE-L-style F1 score
-def rough_rouge_l_f1(prediction, reference):
-
-    # Normalizes generated and reference subjects
-    pred_words = normalize_words(prediction)
-    ref_words = normalize_words(reference)
-
-    # Returns zero if either text is empty
-    if len(pred_words) == 0 or len(ref_words) == 0:
-        return 0.0
-
-    # Computes the longest common subsequence length
-    lcs = lcs_length(pred_words, ref_words)
-
-    # Computes the precision-like overlap
-    precision = lcs / len(pred_words)
-
-    # Computes the recall-like overlap
-    recall = lcs / len(ref_words)
-
-    # Avoids division by zero.
-    if precision + recall == 0:
-        return 0.0
-
-    # Returns an F1-style score
-    return 2 * precision * recall / (precision + recall)
-
-
-# Assigns a simple error category to each generated subject
-# This helps identify errors and their frequency
-def classify_error(generated_subject, reference_subject, rough_score):
-    # Removes surrounding spaces for reliable comparisons
-    generated_clean = generated_subject.strip()
-    reference_clean = reference_subject.strip()
-
-    # Identifies empty generations
-    if generated_clean == "":
-        return "Generated output is empty"
-
-    # Identifies outputs that exactly match the reference subject
-    if generated_clean.lower() == reference_clean.lower():
-        return "Generated output is an exact match with the reference text"
-
-    # Counts words in the generated subject
-    word_count = len(generated_clean.split())
-
-    # Identifies outputs that are likely too short
-    if word_count <= 1:
-        return "Generated output too short"
-
-    # Identifies outputs that are likely too long for a subject line
-    if word_count > 12:
-        return "Generated output too long"
-
-    # Identifies outputs that have very low overlap with the reference subject
-    if rough_score < 0.15:
-        return "Generated output has low overlap with reference"
-
-    # Otherwise, marks the example for further review
-    return "Generated output needs manual review"
 
 # Saves predictions, readable samples, metrics, and error examples
 def save_outputs(prediction_rows, final_metrics, test_results, config):
