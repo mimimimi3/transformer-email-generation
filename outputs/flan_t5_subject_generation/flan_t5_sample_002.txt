@@ -1,0 +1,11 @@
+SAMPLE 2
+======================================================================
+
+EMAIL BODY:
+The following reports have been waiting for your approval for more than <NUMBER> days. Please review. Owner: James W Reitmeyer Report Name: JReitmeyer <NUMBER>/<NUMBER>/<NUMBER> Days In Mgr. Queue: <NUMBER>
+
+REFERENCE SUBJECT:
+Expense Reports Awaiting Your Approval
+
+GENERATED SUBJECT:
+Expense Reports Awaiting Your Approval
