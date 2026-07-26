@@ -10,12 +10,10 @@ Expense Reports Awaiting Your Approval
 EMAIL PROMPT:
 The following reports have been waiting for your approval for more than <NUMBER> days.
 Please review.
-O
 
 REFERENCE CONTINUATION:
-wner: James W Reitmeyer Report Name: JReitmeyer <NUMBER>/<NUMBER>/<NUMBER> Days In Mgr.
+Owner: James W Reitmeyer Report Name: JReitmeyer <NUMBER>/<NUMBER>/<NUMBER> Days In Mgr.
 Queue: <NUMBER>
 
 GENERATED CONTINUATION:
-Notification - Please notify the Owner before they can be rescheduled.
-Owner: Jody L Garrison Report Name: EES-<STATE> Days In Mgrd Fax : <NUMB>/day Time to Watch: <NUMPHONE> Resolution: <COMPANY> Corp Position:
+Owner: Mark E Smith Report Name: PG&E <EMAIL> Days In Mgrd In Mgmt/day Off-Grid Status Last Modified On Mon, Jul 00th, at 0am PDT , all records in MGrldr should be back online by Sat., Aug (<CUR><NUM

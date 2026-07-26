@@ -36,6 +36,15 @@ MODEL_DIRECTORY = (
 # Number of examples
 NUMBER_OF_SAMPLES = 10
 
+# Sampling settings reduce the phrase-looping that greedy decoding often causes
+# with DistilGPT-2 email continuations.
+DO_SAMPLE = True
+TEMPERATURE = 0.8
+TOP_P = 0.9
+REPETITION_PENALTY = 1.2
+NO_REPEAT_NGRAM_SIZE = 3
+SEED = 42
+
 
 def main():
     # Loads the YAML configuration file
@@ -91,9 +100,19 @@ def main():
     # Evaluation mode ensures the model is not training
     model.eval()
 
+    # Makes sampling-based generation reproducible across runs
+    torch.manual_seed(SEED)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(SEED)
+
     print(f"Using device: {device}")
     print(f"Using condition: {CONDITION}")
-
+    print(
+        "Decoding: "
+        f"do_sample={DO_SAMPLE}, temperature={TEMPERATURE}, "
+        f"top_p={TOP_P}, repetition_penalty={REPETITION_PENALTY}, "
+        f"no_repeat_ngram_size={NO_REPEAT_NGRAM_SIZE}"
+    )
     # Streams the test dataset
 
     print("Loading test examples from Hugging Face...")
@@ -189,8 +208,11 @@ def main():
             generated_ids = model.generate(
                 **model_inputs,
                 max_new_tokens=config["max_new_tokens"],
-                do_sample=False,
-                num_beams=1,
+                do_sample=DO_SAMPLE,
+                temperature=TEMPERATURE,
+                top_p=TOP_P,
+                repetition_penalty=REPETITION_PENALTY,
+                no_repeat_ngram_size=NO_REPEAT_NGRAM_SIZE,
                 pad_token_id=tokenizer.pad_token_id,
                 eos_token_id=tokenizer.eos_token_id,
             )
@@ -215,6 +237,14 @@ def main():
                 "prompt_text": prompt_text,
                 "reference_continuation": sample["reference_continuation"],
                 "generated_continuation": generated_continuation,
+                "decoding": {
+                    "do_sample": DO_SAMPLE,
+                    "temperature": TEMPERATURE,
+                    "top_p": TOP_P,
+                    "repetition_penalty": REPETITION_PENALTY,
+                    "no_repeat_ngram_size": NO_REPEAT_NGRAM_SIZE,
+                    "seed": SEED,
+                },
             }
         )
 
@@ -288,6 +318,14 @@ Dataset: {config["dataset_name"]}
 Dataset split: test
 
 Number of generated samples: {NUMBER_OF_SAMPLES}
+
+Decoding:
+- do_sample={DO_SAMPLE}
+- temperature={TEMPERATURE}
+- top_p={TOP_P}
+- repetition_penalty={REPETITION_PENALTY}
+- no_repeat_ngram_size={NO_REPEAT_NGRAM_SIZE}
+- seed={SEED}
 
 Description:
 This script loads the fine-tuned DistilGPT-2 model saved by

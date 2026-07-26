@@ -18,6 +18,15 @@ Decoding:
 - no_repeat_ngram_size=3
 - seed=42
 
+Description:
+This script loads the fine-tuned DistilGPT-2 model saved by
+src/train_distilgpt2.py. It also streams the test split of the AESLC
+dataset and selects 10 valid email examples for the
+model to process.
+
+Each email body is split into an incomplete prompt and a held-out
+continuation. The model then generates the missing continuation text.
+
 Files:
 - distilgpt2_sample_001.txt to distilgpt2_sample_010.txt
   contain the individual generated examples.
@@ -26,3 +35,5 @@ Files:
   generated examples in one JSON file.
 
 - README_model_outputs.txt contains this description.
+
+This script does not train the model.

@@ -8,15 +8,15 @@ SUBJECT:
 Farewell Drinks
 
 EMAIL PROMPT:
-As our last day is Friday, November 00th, we would love to toast the good times and special memories that we have shared with you over the past five ye
+As our last day is Friday, November 00th, we would love to toast the good times and special memories that we have shared with you over the past five
 
 REFERENCE CONTINUATION:
-ars.
+years.
 Please join us at Teala's (W. Dallas) on Thursday, November 00th, beginning at 0pm.
 Looking forward to being with you, Lara and Janel Lara Leibman
 
 GENERATED CONTINUATION:
 years.
-This is especially true for those who are older than <NUMBER> years old!
-If you don't think about it then please let me know by e-mail at <EMAIL> or via voice mail @ <PHONE>.
-We will also make a big contribution if everyone's going out
+This is especially true for those who are in the office today.
+We will also be making a special birthday cake (if any) for everyone at <COMPANY> HQ this weekend.
+Thank You. . ." -- Cindy Jones <NUMBER>:<NUMBER> AM EB0C0
