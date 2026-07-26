@@ -23,10 +23,10 @@ OUTPUT_FOLDER = PROJECT_FOLDER / "outputs" / "distilgpt2_email_continuation"
 # Prompt condition to demonstrate:
 # - "body_only": incomplete email body only
 # - "subject_and_body": subject line plus incomplete email body
-CONDITION = "body_only"
+CONDITION = "subject_and_body"
 
 # Public Hugging Face model repository
-MODEL_ID = "deva-penumaka/distilgpt2-email-continuation-body-only"
+MODEL_ID = "deva-penumaka/distilgpt2-email-continuation-subject-and-body"
 
 # Number of examples
 NUMBER_OF_SAMPLES = 10

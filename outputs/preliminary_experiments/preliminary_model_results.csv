@@ -1,0 +1,3 @@
+rouge1,rouge2,rougeL,bleu,bertscore_precision,bertscore_recall,bertscore_f1,average_generated_subject_words,test_loss,perplexity,model_name,model_checkpoint
+0.1592,0.0643,0.1494,0.9541,0.83,0.86,0.8444,12.56,3.4814,32.5045,t5-small,google-t5/t5-small
+0.2912,0.1355,0.2694,2.5796,0.858,0.8772,0.8669,9.33,nan,nan,flan-t5-small,google/flan-t5-small

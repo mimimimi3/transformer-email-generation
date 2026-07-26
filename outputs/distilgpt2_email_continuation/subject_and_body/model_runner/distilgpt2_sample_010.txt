@@ -2,7 +2,7 @@ SAMPLE 10
 ======================================================================
 
 CONDITION:
-body_only
+subject_and_body
 
 SUBJECT:
 Increased Security at Enron Center
@@ -16,8 +16,6 @@ Nonetheless we take all threats seriously and have increased the security presen
 Once again, if you observe suspicious behavior, please call security at <NUMBER>-<NUMBER>.
 
 GENERATED CONTINUATION:
-This is not only false news but also false allegations that the Center was involved in a fraud.
-The Center has been notified of an investigation into this matter.
-Please call your representatives at x00000 if you have any questions.
-Thank you for being part OF <COMPIANY>.
-Regards, Liz Taylor
+We requested that we have all the necessary documents (both physical copies of our online forms) taken down by the agency's counterparty.
+Please let me know if there is anything else you need or would like for further information.
+Thanks! -Sally Hodge-Smith Senior Counsel, Public Relations, Houston Division

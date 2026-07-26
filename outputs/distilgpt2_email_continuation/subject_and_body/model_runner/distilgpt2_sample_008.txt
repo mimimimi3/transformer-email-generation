@@ -2,7 +2,7 @@ SAMPLE 8
 ======================================================================
 
 CONDITION:
-body_only
+subject_and_body
 
 SUBJECT:
 Slide for John Sheriff
@@ -17,10 +17,8 @@ Thanks.
 Savita
 
 GENERATED CONTINUATION:
-the first time.
-I thought you might want me on your website.
-Thanks!
---Sally <NUMBER>-<NUMBER>.0?sounds like a good idea.
-Kay <PHONE>) Thanks, Mommy and Dad.
-Have a great day.
-Best, Kay P
+the Houston office.
+I thought you might want some pictures of the slides and some more detail on how we did it!
+Hope everything is going well.
+Regards, Liz Taylor x00000.htm.
+Thanks again!! -Sally Mays <NUMBER>-<NUMBER>:<NUMB

@@ -2,7 +2,7 @@ SAMPLE 4
 ======================================================================
 
 CONDITION:
-body_only
+subject_and_body
 
 SUBJECT:
 RM Simulation Storyline Scripts - Ready for Legal Review
@@ -26,6 +26,7 @@ title change to manager)?
 Cheers Kirk
 
 GENERATED CONTINUATION:
-be the only ones that do not seem pertinent for us to add to this list.
-I am working with Sheila (a lawyer from Houston) and Susan Kowalke at Cinergy and she will provide a list as soon as the initial draft gets out to everyone.
-For example if you want me set
+be being made as part of a continuing discussion on the issue (i.g., ISDA).
+The draft language includes "the definition" of an ISDA term.
+I know you guys are out of work this weekend and if so what can do with those comments?
+For example...we are going into

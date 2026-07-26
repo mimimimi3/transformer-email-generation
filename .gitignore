@@ -225,7 +225,8 @@ __marimo__/
 # Project-specific ignores
 .venv/
 models/
-outputs/
+outputs/distilgpt2_email_continuation/body_only/checkpoints
+outputs/distilgpt2_email_continuation/subject_and_body/checkpoints
 data/raw/
 data/processed/
 .cache/

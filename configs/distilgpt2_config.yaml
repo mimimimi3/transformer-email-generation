@@ -23,7 +23,7 @@ max_new_tokens: 64
 learning_rate: 0.00005
 train_batch_size: 4
 eval_batch_size: 4
-num_train_epochs: 3
+num_train_epochs: 10
 weight_decay: 0.01
 
 # Data cleaning / split quality filters
