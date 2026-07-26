@@ -1,0 +1,28 @@
+SAMPLE 9
+======================================================================
+
+CONDITION:
+body_only
+
+SUBJECT:
+URGENT - ENA Associates & Analysts
+
+EMAIL PROMPT:
+All, The below Analyst & Associate recruiting dates require <COMPANY> participation at Manager level at above.
+In order to resource each of your departments it is important to have <COMPANY>'s involvement and participation in the interviews and debrief sessions on Fantastic Friday and Super Saturday events.
+These de-brief sessions will allow you the opportunity to select candidates you wish to join your groups.
+The target is to assign potential candidates to business units and departments from the outset.
+As <COMPANY> has the highest percentage of A&A rotating in its business unit, the participation of <COMPANY> at interview should reflect
+
+REFERENCE CONTINUATION:
+this.
+Therefore, please encourage your direct reports and managers to participate in the below events in order to secure candidates for your business area.
+Associate Recruiting: Saturday November <NUMBER> Total - <NUMBER> Candidates for Interview Analyst Recruiting: Friday, November <NUMBER> Total - <NUMBER> Candidates for Interivew Associate Recruiting: Saturday, December <NUMBER> Total - <NUMBER> Candidates for Interview The above spreadsheet represents <COMPANY>'s particpation today which I believe highlights the need for much additional support in these efforts.
+Please confirm by return participation of your respective groups.
+Regards,
+
+GENERATED CONTINUATION:
+your overall desire for a successful career as well as your overall accomplishments.
+Your participation in these interviews and/or debrief session will also provide some insight into your current position.
+If there are any questions or concerns please contact Mark Greenberg @ x00000.
+We look forward working with you to participating fully within our

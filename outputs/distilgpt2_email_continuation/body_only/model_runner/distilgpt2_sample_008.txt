@@ -1,0 +1,24 @@
+SAMPLE 8
+======================================================================
+
+CONDITION:
+body_only
+
+SUBJECT:
+Slide for John Sheriff
+
+EMAIL PROMPT:
+Hi John, I was wondering if you had a chance to put together that slide for
+
+REFERENCE CONTINUATION:
+us.
+I know you are really busy and we appreciate your help.
+Thanks.
+Savita
+
+GENERATED CONTINUATION:
+this weekend's conference call.
+Can you give me a shout out and let me know what time works best for you.
+Thanks, Amy!
+Kate - I hope you are doing well on the first day of your conference calls.
+Regards, Regards, Bob Bland <PHONE> (phone)

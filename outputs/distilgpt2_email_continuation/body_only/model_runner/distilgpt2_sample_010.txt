@@ -1,0 +1,23 @@
+SAMPLE 10
+======================================================================
+
+CONDITION:
+body_only
+
+SUBJECT:
+Increased Security at Enron Center
+
+EMAIL PROMPT:
+Late on October 00th, we received information about a nonspecific threat to the <COMPANY> Center.
+We communicated with law enforcement officials who found the threat unsubstantiated and without merit.
+Nonet
+
+REFERENCE CONTINUATION:
+heless we take all threats seriously and have increased the security presence at the <COMPANY> Center still further.
+Once again, if you observe suspicious behavior, please call security at <NUMBER>-<NUMBER>.
+
+GENERATED CONTINUATION:
+for the same period as Net Works and ECT.com (the online trading company) will continue operating under Networks and Ectiv contracts.
+In addition Telco will be using ISDA for its services at their core.
+Please let me know if you have any questions regarding this matter.
+Thanks again

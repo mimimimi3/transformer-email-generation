@@ -1,0 +1,162 @@
+[
+  {
+    "sample_number": 1,
+    "condition": "body_only",
+    "subject": "Huntley/question",
+    "email_prompt": "Phillip, Could you please do me a favor?\nI would like to read your current title policy to see what it says about easements.\nYou should have received a copy during your closin",
+    "reference_continuation": "g.\nI don't know how many pages it will be but let me know how you want to handle getting a copy made.\nI'll be happy to make the copy, or whatever makes it easy for you.\nThanks,",
+    "generated_continuation": "meeting and could you please advise me on the latest draft?\nPlease call if you have any questions.\nThanks for your assistance in this matter!\nRegards, Lisa x00000 x00000 <PHONE> <EMAIL> <NUMBER> <URL>.htm <URL>, \"Policy\" <COMP",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 2,
+    "condition": "body_only",
+    "subject": "Expense Reports Awaiting Your Approval",
+    "email_prompt": "The following reports have been waiting for your approval for more than <NUMBER> days.\nPlease review.\nO",
+    "reference_continuation": "wner: James W Reitmeyer Report Name: JReitmeyer <NUMBER>/<NUMBER>/<NUMBER> Days In Mgr.\nQueue: <NUMBER>",
+    "generated_continuation": "Notification - Please notify the Owner before they can be rescheduled.\nOwner: Jody L Garrison Report Name: EES-<STATE> Days In Mgrd Fax : <NUMB>/day Time to Watch: <NUMPHONE> Resolution: <COMPANY> Corp Position:",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 3,
+    "condition": "body_only",
+    "subject": "Re-start/Integration Planning",
+    "email_prompt": "We have for the last couple of weeks started to compile the Re-start/Integration Plans for Netco.\nSo far, we have primarily focussed on the mid/back plans where the technology requirements have been the driving factors.\nSeveral plans are in the final stages of completion including:- + Infrastructure Jenny Rub + Development Jay Webb + <COMPANY>Online Webb / Forster + HR David Oxley + Cash Management Tom Myers + Credit Debbie Brackett The rest will be completed shortly.\nWe now need to focus on the commercial plans which have a slightly different focus.\nJohn and I would like to receive the plans \"Re-start/Integration\" plans by January 0th, <NUMBER> in order to go through them individually with each of you or in groups.\nThe focus should be to ensure that we have as much of the b",
+    "reference_continuation": "usiness up and running in the shortest time possible.\nI have a suggested outline which you do not have to use but I thought it might help.\nPlease decide within yourselves the areas you will cover together or individually.\nCustomer Side + Customers Phase <NUMBER> - First Week (eg top <NUMBER>) Phase <NUMBER> - First Month (eg top <NUMBER>) Phase <NUMBER> - First Quarter (eg top <NUMBER>) + Action Plan Phase <NUMBER> Customers Phase <NUMBER> Customers Phase <NUMBER> Customers + Contracts by customers (pre-prepared with credit terms etc) + Customer visit schedule Product Side + List of Products Phase <NUMBER> - First Week Phase <NUMBER> - First Month Phase <NUMBER> - First Quarter Target Number of Transactions + Phase <NUMBER> + Phase <NUMBER> + Phase <NUMBER> IT transfer Louise",
+    "generated_continuation": "means from us as possible.\nThis would also ensure an easy transition to the commercial planning group.\nI believe this could result in a more flexible approach to your group. Also some additional information may come up if there is anything else we need.\nPlease give me a call ASAP so that I can get the",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 4,
+    "condition": "body_only",
+    "subject": "RM Simulation Storyline Scripts - Ready for Legal Review",
+    "email_prompt": "Michelle Here are my very minor comments.\nHowever we still need to wait on any additions, based on meeting with SME's today.\nOne concern is the firing of the learner who performs bad in the final two scenarios.\nDo we face any copyright issues using the CNN type themes?\nIn addition, I think we need to stay clear of anything that remotely seems like California or anything that really happen with <COMPANY>?\n(i.e.\nSo-cal Waha) In addition, comments on regulatory issues may",
+    "reference_continuation": "be a problem (i.e.\nCalifornia Legislature).\nSheri When you read all the scripts together and due to the similar mechanics being taught it appears very repetitious.\nThus I do believe we need to maybe use a \"Dateline\" type theme for one, and a \"<NUMBER> Minute\" type theme for another scenario vice just the CNN type theme.\nIn the last two scenarios can we include a promotion out of the associate program for the stellar performers (i.e.\ntitle change to manager)?\nCheers Kirk",
+    "generated_continuation": "require some serious attention (e.g., the state of New Mexico has approved a new version for <COMCUR><NUMBER>-<NUMBER>.\nThese issues are subject as of now, but it should be a little more clear from time totime about what we need and need from the SEC.",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 5,
+    "condition": "body_only",
+    "subject": "Answer",
+    "email_prompt": "For purposes of an accelerated distribution from the PSA, a \"single sum distribution,\" in Section <NUMBER> means that a PSA account is distributed all at once, as distinguished from another form of payout as may have been selected by a participant in his or her deferral agreement.\nSection <NUMBER> is clear in that the account balance shall be determined as of the last day of the month preceding the date on which the Committee receives the written request of the Participant.\nA PSA account balance is reflected in shares of stock since the form of distribution is shares of stock.\nAdditionally, any portion of a PSA balan",
+    "reference_continuation": "ce attributable to deferral of restricted stock is administered under Sections <NUMBER> and <NUMBER> and Exhibit A of the Plan.\nThis section is applicable now as we are accelerating the distribution of PSA balances created with deferrals of restricted stock.\nThe Plan indicates that upon death, disability, retirement or termination, the share units are converted to shares which are issued to the executive according to the payment election made by the executive at the time of the deferral election.\nTherefore the distribution you will receive in shares is correct and we do not agree with your interpretation of the plan.",
+    "generated_continuation": "of <COMPANY>, any portion designated to you under the terms and conditions contained therein will not accrue to the recipient until such time as the recipient has requested it (i) by the parties who are authorized agents thereof; nor (ii)(iii), shall the recipient receive any share of the funds raised pursuant thereto",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 6,
+    "condition": "body_only",
+    "subject": "BCP Seat Assignments",
+    "email_prompt": "All: Attached you will find a list that reflects your seat assignments for Business Continuity Planning (BCP).\nThese seats are located on the 00th and 00st Floors of <COMPANY> Center North (ECN).\nAs previously communicated, you will report to these designated seats in the event of an outage in ECS.\nThe exception to this is as follows: If your seat assignment is located on the 00st Floor, you will report to your original location that you occupied prior to your m",
+    "reference_continuation": "ove into ECS.\nThis will hold true until the Monday after Thanksgiving, as we will have the 00st floor seats set up at that time.\nTesting: Once you have moved to ECS, if you would like to test your BCP location, you will be able to test your seat for functionality every Thursday from <NUMBER>-0pm.\nTesting is not required, but is highly recommended.\nIf anyone has any questions or concerns about these procedures, please feel free to contact me at any time.\nRegards,",
+    "generated_continuation": "last year or so, if not before your m last year's MTM and/or MTM would be subject to any change in the location.\nIf you have any questions or need additional information concerning such specific areas please contact me at x00000.\nThank you.\nSincerely yours! - Steve Kean",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 7,
+    "condition": "body_only",
+    "subject": "Farewell Drinks",
+    "email_prompt": "As our last day is Friday, November 00th, we would love to toast the good times and special memories that we have shared with you over the past five ye",
+    "reference_continuation": "ars.\nPlease join us at Teala's (W. Dallas) on Thursday, November 00th, beginning at 0pm.\nLooking forward to being with you, Lara and Janel Lara Leibman",
+    "generated_continuation": "years.\nThis is especially true for those who are older than <NUMBER> years old!\nIf you don't think about it then please let me know by e-mail at <EMAIL> or via voice mail @ <PHONE>.\nWe will also make a big contribution if everyone's going out",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 8,
+    "condition": "body_only",
+    "subject": "Slide for John Sheriff",
+    "email_prompt": "Hi John, I was wondering if you had a chance to put together that slide for",
+    "reference_continuation": "us.\nI know you are really busy and we appreciate your help.\nThanks.\nSavita",
+    "generated_continuation": "this weekend's conference call.\nCan you give me a shout out and let me know what time works best for you.\nThanks, Amy!\nKate - I hope you are doing well on the first day of your conference calls.\nRegards, Regards, Bob Bland <PHONE> (phone)",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 9,
+    "condition": "body_only",
+    "subject": "URGENT - ENA Associates & Analysts",
+    "email_prompt": "All, The below Analyst & Associate recruiting dates require <COMPANY> participation at Manager level at above.\nIn order to resource each of your departments it is important to have <COMPANY>'s involvement and participation in the interviews and debrief sessions on Fantastic Friday and Super Saturday events.\nThese de-brief sessions will allow you the opportunity to select candidates you wish to join your groups.\nThe target is to assign potential candidates to business units and departments from the outset.\nAs <COMPANY> has the highest percentage of A&A rotating in its business unit, the participation of <COMPANY> at interview should reflect",
+    "reference_continuation": "this.\nTherefore, please encourage your direct reports and managers to participate in the below events in order to secure candidates for your business area.\nAssociate Recruiting: Saturday November <NUMBER> Total - <NUMBER> Candidates for Interview Analyst Recruiting: Friday, November <NUMBER> Total - <NUMBER> Candidates for Interivew Associate Recruiting: Saturday, December <NUMBER> Total - <NUMBER> Candidates for Interview The above spreadsheet represents <COMPANY>'s particpation today which I believe highlights the need for much additional support in these efforts.\nPlease confirm by return participation of your respective groups.\nRegards,",
+    "generated_continuation": "your overall desire for a successful career as well as your overall accomplishments.\nYour participation in these interviews and/or debrief session will also provide some insight into your current position.\nIf there are any questions or concerns please contact Mark Greenberg @ x00000.\nWe look forward working with you to participating fully within our",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 10,
+    "condition": "body_only",
+    "subject": "Increased Security at Enron Center",
+    "email_prompt": "Late on October 00th, we received information about a nonspecific threat to the <COMPANY> Center.\nWe communicated with law enforcement officials who found the threat unsubstantiated and without merit.\nNonet",
+    "reference_continuation": "heless we take all threats seriously and have increased the security presence at the <COMPANY> Center still further.\nOnce again, if you observe suspicious behavior, please call security at <NUMBER>-<NUMBER>.",
+    "generated_continuation": "for the same period as Net Works and ECT.com (the online trading company) will continue operating under Networks and Ectiv contracts.\nIn addition Telco will be using ISDA for its services at their core.\nPlease let me know if you have any questions regarding this matter.\nThanks again",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  }
+]

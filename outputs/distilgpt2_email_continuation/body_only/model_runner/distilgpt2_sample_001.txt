@@ -1,0 +1,25 @@
+SAMPLE 1
+======================================================================
+
+CONDITION:
+body_only
+
+SUBJECT:
+Huntley/question
+
+EMAIL PROMPT:
+Phillip, Could you please do me a favor?
+I would like to read your current title policy to see what it says about easements.
+You should have received a copy during your closin
+
+REFERENCE CONTINUATION:
+g.
+I don't know how many pages it will be but let me know how you want to handle getting a copy made.
+I'll be happy to make the copy, or whatever makes it easy for you.
+Thanks,
+
+GENERATED CONTINUATION:
+meeting and could you please advise me on the latest draft?
+Please call if you have any questions.
+Thanks for your assistance in this matter!
+Regards, Lisa x00000 x00000 <PHONE> <EMAIL> <NUMBER> <URL>.htm <URL>, "Policy" <COMP

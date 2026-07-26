@@ -1,0 +1,21 @@
+SAMPLE 2
+======================================================================
+
+CONDITION:
+body_only
+
+SUBJECT:
+Expense Reports Awaiting Your Approval
+
+EMAIL PROMPT:
+The following reports have been waiting for your approval for more than <NUMBER> days.
+Please review.
+O
+
+REFERENCE CONTINUATION:
+wner: James W Reitmeyer Report Name: JReitmeyer <NUMBER>/<NUMBER>/<NUMBER> Days In Mgr.
+Queue: <NUMBER>
+
+GENERATED CONTINUATION:
+Notification - Please notify the Owner before they can be rescheduled.
+Owner: Jody L Garrison Report Name: EES-<STATE> Days In Mgrd Fax : <NUMB>/day Time to Watch: <NUMPHONE> Resolution: <COMPANY> Corp Position:
