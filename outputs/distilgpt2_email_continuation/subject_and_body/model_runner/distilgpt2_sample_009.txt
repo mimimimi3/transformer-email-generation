@@ -2,7 +2,7 @@ SAMPLE 9
 ======================================================================
 
 CONDITION:
-body_only
+subject_and_body
 
 SUBJECT:
 URGENT - ENA Associates & Analysts
@@ -22,6 +22,7 @@ Please confirm by return participation of your respective groups.
 Regards,
 
 GENERATED CONTINUATION:
-your desire for a promotion or promotion.
-Your group members will be assigned to a specific career development program, including a position with an offer that reflects your background as a lawyer, analyst (or legal associate) outside the firm or in a high-level role.
-A representative from our HR Office will assist prospective candidates
+an impact that a high number of the candidates may experience.
+You are not limited only by current hiring levels but also our current hire base as well for additional activities on Fantastic Thursday.
+Your participation meets the criteria set forth in this email.
+Additionally we appreciate every effort made within our organization with the assistance offered here

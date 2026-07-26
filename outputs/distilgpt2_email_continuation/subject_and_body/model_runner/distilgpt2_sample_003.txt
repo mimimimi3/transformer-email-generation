@@ -2,7 +2,7 @@ SAMPLE 3
 ======================================================================
 
 CONDITION:
-body_only
+subject_and_body
 
 SUBJECT:
 Re-start/Integration Planning
@@ -22,6 +22,6 @@ Please decide within yourselves the areas you will cover together or individuall
 Customer Side + Customers Phase <NUMBER> - First Week (eg top <NUMBER>) Phase <NUMBER> - First Month (eg top <NUMBER>) Phase <NUMBER> - First Quarter (eg top <NUMBER>) + Action Plan Phase <NUMBER> Customers Phase <NUMBER> Customers Phase <NUMBER> Customers + Contracts by customers (pre-prepared with credit terms etc) + Customer visit schedule Product Side + List of Products Phase <NUMBER> - First Week Phase <NUMBER> - First Month Phase <NUMBER> - First Quarter Target Number of Transactions + Phase <NUMBER> + Phase <NUMBER> + Phase <NUMBER> IT transfer Louise
 
 GENERATED CONTINUATION:
-business in place to meet our group goals and objectives.
-I believe this is sufficient if all your objectives are set up within the group and should therefore take into account any changes you might see on a weekly basis.
-Please review any comments regarding these plans and I'll send them back to me when I have time to
+impact of each plan within our group as possible.
+It is critical that we not only meet with you, but also your group's teams on a monthly basis so that they can get together on a weekly basis, however it may take some time to complete those plans.
+In addition - if there is anything else we

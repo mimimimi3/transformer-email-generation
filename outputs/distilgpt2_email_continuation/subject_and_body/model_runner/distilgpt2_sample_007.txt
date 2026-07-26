@@ -2,7 +2,7 @@ SAMPLE 7
 ======================================================================
 
 CONDITION:
-body_only
+subject_and_body
 
 SUBJECT:
 Farewell Drinks
@@ -17,6 +17,6 @@ Looking forward to being with you, Lara and Janel Lara Leibman
 
 GENERATED CONTINUATION:
 years.
-I hope to come back this year as soon as possible and try my hardest not just for next week but also for a while (as well).
-As always - I know it will be difficult in the future, but I hope I can make it through tomorrow.
-Love, Liz Taylor & Susan Flynn
+We hope to come back this year in a few more months and feel safe about what is going on with your family and friends.
+Regards! - <NUMBER>-<NUMBER>.0pm Sat. Nov. 0st at St. Regis.
+Please remember these days.

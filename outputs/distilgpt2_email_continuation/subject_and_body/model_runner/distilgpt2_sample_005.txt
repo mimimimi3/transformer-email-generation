@@ -2,7 +2,7 @@ SAMPLE 5
 ======================================================================
 
 CONDITION:
-body_only
+subject_and_body
 
 SUBJECT:
 Answer
@@ -20,6 +20,5 @@ The Plan indicates that upon death, disability, retirement or termination, the s
 Therefore the distribution you will receive in shares is correct and we do not agree with your interpretation of the plan.
 
 GENERATED CONTINUATION:
-consisting solely of equity and interest will not be assigned to the PAS until it has fully paid back in its balance.
-The "exclusive" transfer provision of this provision would preclude any payment if the individual who receives money from the Trust to any other entity during the transfer is deemed unsecured.
-Any payment made
+consisting solely of equity and interest shall not exceed the term limit for such amount until the term limits are met (i) whichever exceeds that period within the applicable period of time (ii), if any other than this year (or the following year).
+The maximum net worth calculated under this formula will include the total value over

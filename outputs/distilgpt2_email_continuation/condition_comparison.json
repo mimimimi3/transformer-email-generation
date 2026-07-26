@@ -1,0 +1,78 @@
+[
+  {
+    "condition": "body_only",
+    "pretrained": {
+      "condition": "body_only",
+      "model_stage": "pretrained",
+      "model_checkpoint": "distilbert/distilgpt2",
+      "validation_loss": 3.7772,
+      "validation_perplexity": 43.6944,
+      "test_loss": 3.7617,
+      "test_perplexity": 43.0195,
+      "rouge1": 0.1417,
+      "rouge2": 0.0208,
+      "rougeL": 0.1199,
+      "bleu": 1.9669,
+      "bertscore_precision": 0.827,
+      "bertscore_recall": 0.8129,
+      "bertscore_f1": 0.8197,
+      "average_generated_continuation_words": 41.34
+    },
+    "fine_tuned": {
+      "condition": "body_only",
+      "model_stage": "fine_tuned",
+      "model_checkpoint": "distilbert/distilgpt2",
+      "validation_loss": 3.0185,
+      "validation_perplexity": 20.4607,
+      "test_loss": 2.9659,
+      "test_perplexity": 19.4126,
+      "rouge1": 0.2398,
+      "rouge2": 0.0974,
+      "rougeL": 0.2036,
+      "bleu": 8.8012,
+      "bertscore_precision": 0.8365,
+      "bertscore_recall": 0.8411,
+      "bertscore_f1": 0.8383,
+      "average_generated_continuation_words": 41.55,
+      "test_perplexity_reduction_pct": 54.87
+    }
+  },
+  {
+    "condition": "subject_and_body",
+    "pretrained": {
+      "condition": "subject_and_body",
+      "model_stage": "pretrained",
+      "model_checkpoint": "distilbert/distilgpt2",
+      "validation_loss": 3.7526,
+      "validation_perplexity": 42.6307,
+      "test_loss": 3.7408,
+      "test_perplexity": 42.1318,
+      "rouge1": 0.1203,
+      "rouge2": 0.0183,
+      "rougeL": 0.1066,
+      "bleu": 1.6517,
+      "bertscore_precision": 0.8241,
+      "bertscore_recall": 0.8076,
+      "bertscore_f1": 0.8155,
+      "average_generated_continuation_words": 40.59
+    },
+    "fine_tuned": {
+      "condition": "subject_and_body",
+      "model_stage": "fine_tuned",
+      "model_checkpoint": "distilbert/distilgpt2",
+      "validation_loss": 3.007,
+      "validation_perplexity": 20.2271,
+      "test_loss": 2.9488,
+      "test_perplexity": 19.0821,
+      "rouge1": 0.2535,
+      "rouge2": 0.1196,
+      "rougeL": 0.2151,
+      "bleu": 10.7959,
+      "bertscore_precision": 0.849,
+      "bertscore_recall": 0.8411,
+      "bertscore_f1": 0.8448,
+      "average_generated_continuation_words": 41.84,
+      "test_perplexity_reduction_pct": 54.71
+    }
+  }
+]

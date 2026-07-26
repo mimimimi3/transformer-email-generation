@@ -1,8 +1,8 @@
 DistilGPT-2 Email Continuation Demonstration
 
-Model: deva-penumaka/distilgpt2-email-continuation-body-only
+Model: deva-penumaka/distilgpt2-email-continuation-subject-and-body
 
-Condition: body_only
+Condition: subject_and_body
 
 Dataset: postbot/aeslc_kw
 

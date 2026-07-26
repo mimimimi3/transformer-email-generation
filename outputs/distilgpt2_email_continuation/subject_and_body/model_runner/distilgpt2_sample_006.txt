@@ -2,7 +2,7 @@ SAMPLE 6
 ======================================================================
 
 CONDITION:
-body_only
+subject_and_body
 
 SUBJECT:
 BCP Seat Assignments
@@ -23,5 +23,7 @@ Regards,
 
 GENERATED CONTINUATION:
 <NUMBER>:<NUMBER>.
-If any information about your assigned position has been omitted from our database, please call Customer Relations at <PHONE>, or by return e-mail via fax no later than Monday, October 0st.
-If you have any questions, please contact Customer Services at <EMAIL
+Your seat assignment includes any changes that occurred between <NUMER>:<CUR><NUMBER>, but those changes will be made at either ECN or their respective desks.
+This information is kept strictly confidential.
+Please call me if you have questions.
+I look

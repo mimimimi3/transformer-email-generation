@@ -1,0 +1,182 @@
+[
+  {
+    "sample_number": 1,
+    "dataset_index": 0,
+    "condition": "subject_and_body",
+    "subject": "Huntley/question",
+    "email_prompt": "Phillip, Could you please do me a favor?\nI would like to read your current title policy to see what it says about easements.\nYou should have received a copy during your closing.",
+    "prompt_text": "Subject:\nHuntley/question\nEmail:\nPhillip, Could you please do me a favor?\nI would like to read your current title policy to see what it says about easements.\nYou should have received a copy during your closing.\nContinuation:",
+    "reference_continuation": "I don't know how many pages it will be but let me know how you want to handle getting a copy made.\nI'll be happy to make the copy, or whatever makes it easy for you.\nThanks,",
+    "generated_continuation": "Let's talk about the issues in detail and get back with some detail.\nI don't want anyone else involved on the project.\nIf this is not something that I can help you with, please let me know so we can discuss it.\nThanks for your help! If there are any questions or need clarification",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 2,
+    "dataset_index": 1,
+    "condition": "subject_and_body",
+    "subject": "Expense Reports Awaiting Your Approval",
+    "email_prompt": "The following reports have been waiting for your approval for more than <NUMBER> days.\nPlease review.",
+    "prompt_text": "Subject:\nExpense Reports Awaiting Your Approval\nEmail:\nThe following reports have been waiting for your approval for more than <NUMBER> days.\nPlease review.\nContinuation:",
+    "reference_continuation": "Owner: James W Reitmeyer Report Name: JReitmeyer <NUMBER>/<NUMBER>/<NUMBER> Days In Mgr.\nQueue: <NUMBER>",
+    "generated_continuation": "Report #<NUMBER>.0 Days In Mgr. and S# in Mgr., Issue Number EB0000C0 - <NUMB>-<NUMB><NUMBER>:00MEXICO - B00000C0 -- Current Expenses - Pending Amounts <CUR><NUMB>(F",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 3,
+    "dataset_index": 2,
+    "condition": "subject_and_body",
+    "subject": "Re-start/Integration Planning",
+    "email_prompt": "We have for the last couple of weeks started to compile the Re-start/Integration Plans for Netco.\nSo far, we have primarily focussed on the mid/back plans where the technology requirements have been the driving factors.\nSeveral plans are in the final stages of completion including:- + Infrastructure Jenny Rub + Development Jay Webb + <COMPANY>Online Webb / Forster + HR David Oxley + Cash Management Tom Myers + Credit Debbie Brackett The rest will be completed shortly.\nWe now need to focus on the commercial plans which have a slightly different focus.\nJohn and I would like to receive the plans \"Re-start/Integration\" plans by January 0th, <NUMBER> in order to go through them individually with each of you or in groups.\nThe focus should be to ensure that we have as much of the",
+    "prompt_text": "Subject:\nRe-start/Integration Planning\nEmail:\nWe have for the last couple of weeks started to compile the Re-start/Integration Plans for Netco.\nSo far, we have primarily focussed on the mid/back plans where the technology requirements have been the driving factors.\nSeveral plans are in the final stages of completion including:- + Infrastructure Jenny Rub + Development Jay Webb + <COMPANY>Online Webb / Forster + HR David Oxley + Cash Management Tom Myers + Credit Debbie Brackett The rest will be completed shortly.\nWe now need to focus on the commercial plans which have a slightly different focus.\nJohn and I would like to receive the plans \"Re-start/Integration\" plans by January 0th, <NUMBER> in order to go through them individually with each of you or in groups.\nThe focus should be to ensure that we have as much of the\nContinuation:",
+    "reference_continuation": "business up and running in the shortest time possible.\nI have a suggested outline which you do not have to use but I thought it might help.\nPlease decide within yourselves the areas you will cover together or individually.\nCustomer Side + Customers Phase <NUMBER> - First Week (eg top <NUMBER>) Phase <NUMBER> - First Month (eg top <NUMBER>) Phase <NUMBER> - First Quarter (eg top <NUMBER>) + Action Plan Phase <NUMBER> Customers Phase <NUMBER> Customers Phase <NUMBER> Customers + Contracts by customers (pre-prepared with credit terms etc) + Customer visit schedule Product Side + List of Products Phase <NUMBER> - First Week Phase <NUMBER> - First Month Phase <NUMBER> - First Quarter Target Number of Transactions + Phase <NUMBER> + Phase <NUMBER> + Phase <NUMBER> IT transfer Louise",
+    "generated_continuation": "impact of each plan within our group as possible.\nIt is critical that we not only meet with you, but also your group's teams on a monthly basis so that they can get together on a weekly basis, however it may take some time to complete those plans.\nIn addition - if there is anything else we",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 4,
+    "dataset_index": 3,
+    "condition": "subject_and_body",
+    "subject": "RM Simulation Storyline Scripts - Ready for Legal Review",
+    "email_prompt": "Michelle Here are my very minor comments.\nHowever we still need to wait on any additions, based on meeting with SME's today.\nOne concern is the firing of the learner who performs bad in the final two scenarios.\nDo we face any copyright issues using the CNN type themes?\nIn addition, I think we need to stay clear of anything that remotely seems like California or anything that really happen with <COMPANY>?\n(i.e.\nSo-cal Waha) In addition, comments on regulatory issues may",
+    "prompt_text": "Subject:\nRM Simulation Storyline Scripts - Ready for Legal Review\nEmail:\nMichelle Here are my very minor comments.\nHowever we still need to wait on any additions, based on meeting with SME's today.\nOne concern is the firing of the learner who performs bad in the final two scenarios.\nDo we face any copyright issues using the CNN type themes?\nIn addition, I think we need to stay clear of anything that remotely seems like California or anything that really happen with <COMPANY>?\n(i.e.\nSo-cal Waha) In addition, comments on regulatory issues may\nContinuation:",
+    "reference_continuation": "be a problem (i.e.\nCalifornia Legislature).\nSheri When you read all the scripts together and due to the similar mechanics being taught it appears very repetitious.\nThus I do believe we need to maybe use a \"Dateline\" type theme for one, and a \"<NUMBER> Minute\" type theme for another scenario vice just the CNN type theme.\nIn the last two scenarios can we include a promotion out of the associate program for the stellar performers (i.e.\ntitle change to manager)?\nCheers Kirk",
+    "generated_continuation": "be being made as part of a continuing discussion on the issue (i.g., ISDA).\nThe draft language includes \"the definition\" of an ISDA term.\nI know you guys are out of work this weekend and if so what can do with those comments?\nFor example...we are going into",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 5,
+    "dataset_index": 4,
+    "condition": "subject_and_body",
+    "subject": "Answer",
+    "email_prompt": "For purposes of an accelerated distribution from the PSA, a \"single sum distribution,\" in Section <NUMBER> means that a PSA account is distributed all at once, as distinguished from another form of payout as may have been selected by a participant in his or her deferral agreement.\nSection <NUMBER> is clear in that the account balance shall be determined as of the last day of the month preceding the date on which the Committee receives the written request of the Participant.\nA PSA account balance is reflected in shares of stock since the form of distribution is shares of stock.\nAdditionally, any portion of a PSA balance",
+    "prompt_text": "Subject:\nAnswer\nEmail:\nFor purposes of an accelerated distribution from the PSA, a \"single sum distribution,\" in Section <NUMBER> means that a PSA account is distributed all at once, as distinguished from another form of payout as may have been selected by a participant in his or her deferral agreement.\nSection <NUMBER> is clear in that the account balance shall be determined as of the last day of the month preceding the date on which the Committee receives the written request of the Participant.\nA PSA account balance is reflected in shares of stock since the form of distribution is shares of stock.\nAdditionally, any portion of a PSA balance\nContinuation:",
+    "reference_continuation": "attributable to deferral of restricted stock is administered under Sections <NUMBER> and <NUMBER> and Exhibit A of the Plan.\nThis section is applicable now as we are accelerating the distribution of PSA balances created with deferrals of restricted stock.\nThe Plan indicates that upon death, disability, retirement or termination, the share units are converted to shares which are issued to the executive according to the payment election made by the executive at the time of the deferral election.\nTherefore the distribution you will receive in shares is correct and we do not agree with your interpretation of the plan.",
+    "generated_continuation": "consisting solely of equity and interest shall not exceed the term limit for such amount until the term limits are met (i) whichever exceeds that period within the applicable period of time (ii), if any other than this year (or the following year).\nThe maximum net worth calculated under this formula will include the total value over",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 6,
+    "dataset_index": 5,
+    "condition": "subject_and_body",
+    "subject": "BCP Seat Assignments",
+    "email_prompt": "All: Attached you will find a list that reflects your seat assignments for Business Continuity Planning (BCP).\nThese seats are located on the 00th and 00st Floors of <COMPANY> Center North (ECN).\nAs previously communicated, you will report to these designated seats in the event of an outage in ECS.\nThe exception to this is as follows: If your seat assignment is located on the 00st Floor, you will report to your original location that you occupied prior to your",
+    "prompt_text": "Subject:\nBCP Seat Assignments\nEmail:\nAll: Attached you will find a list that reflects your seat assignments for Business Continuity Planning (BCP).\nThese seats are located on the 00th and 00st Floors of <COMPANY> Center North (ECN).\nAs previously communicated, you will report to these designated seats in the event of an outage in ECS.\nThe exception to this is as follows: If your seat assignment is located on the 00st Floor, you will report to your original location that you occupied prior to your\nContinuation:",
+    "reference_continuation": "move into ECS.\nThis will hold true until the Monday after Thanksgiving, as we will have the 00st floor seats set up at that time.\nTesting: Once you have moved to ECS, if you would like to test your BCP location, you will be able to test your seat for functionality every Thursday from <NUMBER>-0pm.\nTesting is not required, but is highly recommended.\nIf anyone has any questions or concerns about these procedures, please feel free to contact me at any time.\nRegards,",
+    "generated_continuation": "<NUMBER>:<NUMBER>.\nYour seat assignment includes any changes that occurred between <NUMER>:<CUR><NUMBER>, but those changes will be made at either ECN or their respective desks.\nThis information is kept strictly confidential.\nPlease call me if you have questions.\nI look",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 7,
+    "dataset_index": 6,
+    "condition": "subject_and_body",
+    "subject": "Farewell Drinks",
+    "email_prompt": "As our last day is Friday, November 00th, we would love to toast the good times and special memories that we have shared with you over the past five",
+    "prompt_text": "Subject:\nFarewell Drinks\nEmail:\nAs our last day is Friday, November 00th, we would love to toast the good times and special memories that we have shared with you over the past five\nContinuation:",
+    "reference_continuation": "years.\nPlease join us at Teala's (W. Dallas) on Thursday, November 00th, beginning at 0pm.\nLooking forward to being with you, Lara and Janel Lara Leibman",
+    "generated_continuation": "years.\nWe hope to come back this year in a few more months and feel safe about what is going on with your family and friends.\nRegards! - <NUMBER>-<NUMBER>.0pm Sat. Nov. 0st at St. Regis.\nPlease remember these days.",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 8,
+    "dataset_index": 7,
+    "condition": "subject_and_body",
+    "subject": "Slide for John Sheriff",
+    "email_prompt": "Hi John, I was wondering if you had a chance to put together that slide for",
+    "prompt_text": "Subject:\nSlide for John Sheriff\nEmail:\nHi John, I was wondering if you had a chance to put together that slide for\nContinuation:",
+    "reference_continuation": "us.\nI know you are really busy and we appreciate your help.\nThanks.\nSavita",
+    "generated_continuation": "the Houston office.\nI thought you might want some pictures of the slides and some more detail on how we did it!\nHope everything is going well.\nRegards, Liz Taylor x00000.htm.\nThanks again!! -Sally Mays <NUMBER>-<NUMBER>:<NUMB",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 9,
+    "dataset_index": 8,
+    "condition": "subject_and_body",
+    "subject": "URGENT - ENA Associates & Analysts",
+    "email_prompt": "All, The below Analyst & Associate recruiting dates require <COMPANY> participation at Manager level at above.\nIn order to resource each of your departments it is important to have <COMPANY>'s involvement and participation in the interviews and debrief sessions on Fantastic Friday and Super Saturday events.\nThese de-brief sessions will allow you the opportunity to select candidates you wish to join your groups.\nThe target is to assign potential candidates to business units and departments from the outset.\nAs <COMPANY> has the highest percentage of A&A rotating in its business unit, the participation of <COMPANY> at interview should reflect",
+    "prompt_text": "Subject:\nURGENT - ENA Associates & Analysts\nEmail:\nAll, The below Analyst & Associate recruiting dates require <COMPANY> participation at Manager level at above.\nIn order to resource each of your departments it is important to have <COMPANY>'s involvement and participation in the interviews and debrief sessions on Fantastic Friday and Super Saturday events.\nThese de-brief sessions will allow you the opportunity to select candidates you wish to join your groups.\nThe target is to assign potential candidates to business units and departments from the outset.\nAs <COMPANY> has the highest percentage of A&A rotating in its business unit, the participation of <COMPANY> at interview should reflect\nContinuation:",
+    "reference_continuation": "this.\nTherefore, please encourage your direct reports and managers to participate in the below events in order to secure candidates for your business area.\nAssociate Recruiting: Saturday November <NUMBER> Total - <NUMBER> Candidates for Interview Analyst Recruiting: Friday, November <NUMBER> Total - <NUMBER> Candidates for Interivew Associate Recruiting: Saturday, December <NUMBER> Total - <NUMBER> Candidates for Interview The above spreadsheet represents <COMPANY>'s particpation today which I believe highlights the need for much additional support in these efforts.\nPlease confirm by return participation of your respective groups.\nRegards,",
+    "generated_continuation": "an impact that a high number of the candidates may experience.\nYou are not limited only by current hiring levels but also our current hire base as well for additional activities on Fantastic Thursday.\nYour participation meets the criteria set forth in this email.\nAdditionally we appreciate every effort made within our organization with the assistance offered here",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  },
+  {
+    "sample_number": 10,
+    "dataset_index": 9,
+    "condition": "subject_and_body",
+    "subject": "Increased Security at Enron Center",
+    "email_prompt": "Late on October 00th, we received information about a nonspecific threat to the <COMPANY> Center.\nWe communicated with law enforcement officials who found the threat unsubstantiated and without merit.",
+    "prompt_text": "Subject:\nIncreased Security at Enron Center\nEmail:\nLate on October 00th, we received information about a nonspecific threat to the <COMPANY> Center.\nWe communicated with law enforcement officials who found the threat unsubstantiated and without merit.\nContinuation:",
+    "reference_continuation": "Nonetheless we take all threats seriously and have increased the security presence at the <COMPANY> Center still further.\nOnce again, if you observe suspicious behavior, please call security at <NUMBER>-<NUMBER>.",
+    "generated_continuation": "We requested that we have all the necessary documents (both physical copies of our online forms) taken down by the agency's counterparty.\nPlease let me know if there is anything else you need or would like for further information.\nThanks! -Sally Hodge-Smith Senior Counsel, Public Relations, Houston Division",
+    "decoding": {
+      "do_sample": true,
+      "temperature": 0.8,
+      "top_p": 0.9,
+      "repetition_penalty": 1.2,
+      "no_repeat_ngram_size": 3,
+      "seed": 42
+    }
+  }
+]

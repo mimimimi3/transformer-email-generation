@@ -1,0 +1,17 @@
+{
+  "condition": "body_only",
+  "model_stage": "pretrained",
+  "model_checkpoint": "distilbert/distilgpt2",
+  "validation_loss": 3.7772,
+  "validation_perplexity": 43.6944,
+  "test_loss": 3.7617,
+  "test_perplexity": 43.0195,
+  "rouge1": 0.1417,
+  "rouge2": 0.0208,
+  "rougeL": 0.1199,
+  "bleu": 1.9669,
+  "bertscore_precision": 0.827,
+  "bertscore_recall": 0.8129,
+  "bertscore_f1": 0.8197,
+  "average_generated_continuation_words": 41.34
+}

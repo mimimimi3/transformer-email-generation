@@ -2,7 +2,7 @@ SAMPLE 1
 ======================================================================
 
 CONDITION:
-body_only
+subject_and_body
 
 SUBJECT:
 Huntley/question
@@ -18,7 +18,7 @@ I'll be happy to make the copy, or whatever makes it easy for you.
 Thanks,
 
 GENERATED CONTINUATION:
-Let's talk about the issues in our review.
-I think I am going along well with Mark Greenberg and Jim Williams (which will likely be on the 00th).
-We are not going anywhere without your cooperation from <COMPANY> to ensure that we get the right document for distribution.
-Thanks.
+Let's talk about the issues in detail and get back with some detail.
+I don't want anyone else involved on the project.
+If this is not something that I can help you with, please let me know so we can discuss it.
+Thanks for your help! If there are any questions or need clarification

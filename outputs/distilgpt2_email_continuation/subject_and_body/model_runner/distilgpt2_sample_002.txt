@@ -2,7 +2,7 @@ SAMPLE 2
 ======================================================================
 
 CONDITION:
-body_only
+subject_and_body
 
 SUBJECT:
 Expense Reports Awaiting Your Approval
@@ -16,5 +16,4 @@ Owner: James W Reitmeyer Report Name: JReitmeyer <NUMBER>/<NUMBER>/<NUMBER> Days
 Queue: <NUMBER>
 
 GENERATED CONTINUATION:
-E-mail Address: <EMAIL> Delivery Point: <COMPANY>.com Delivery Point No.: <NUMB> <NUMBNP-<NUMBER>, Suite <NUME>) Portland, OR <STATE> <PHONE> (phone) <<EMAIL>> Thank you.
-Sincerely,
+Report #<NUMBER>.0 Days In Mgr. and S# in Mgr., Issue Number EB0000C0 - <NUMB>-<NUMB><NUMBER>:00MEXICO - B00000C0 -- Current Expenses - Pending Amounts <CUR><NUMB>(F
