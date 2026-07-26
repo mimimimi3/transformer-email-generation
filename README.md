@@ -99,40 +99,68 @@ docker run -it email-generation
 
 All scripts are located in the `src/` directory.
 
-- Fine-tune, implement, evaluate the T5-small Model and save the output locally
+Our fine-tuned models are available on Hugging Face Hub, so you can run the models directly using the following commands:
 
+- Run the fine-tuned FLAN-T5-small model to generate inferences and save outputs locally
+  
 ```bash
-docker run -it -v $(pwd):/workdir <docker-image-name> python src/train_t5.py
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.flan_t5_model_runner
 ```
 
 Example:
 
 ```bash
-docker run -it -v $(pwd):/workdir email-generation python src/train_t5.py
+docker run -it -v $(pwd):/workdir email-generation python -m src.flan_t5_model_runner
 ```
 
-- Fine-tune, implement, evaluate the FLAN-T5-small Model and save the output locally
-
+- Run the fine-tuned DistilGPT-2 model to generate inferences and save outputs locally
+  
 ```bash
-docker run -it -v $(pwd):/workdir <docker-image-name> python src/train_flan_t5.py
-```
-
-Example:
-
-```bash
-docker run -it -v $(pwd):/workdir email-generation python src/train_flan_t5.py
-```
-
-- Fine-tune, implement, evaluate the DistilGPT2-small Model and save the output locally
-
-```bash
-docker run -it -v $(pwd):/workdir <docker-image-name> python src/train_distilgpt2.py
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.distilgpt2_model_runner
 ```
 
 Example:
 
 ```bash
-docker run -it -v $(pwd):/workdir email-generation python src/train_distilgpt2.py
+docker run -it -v $(pwd):/workdir email-generation python -m src.distilgpt2_model_runner
+```
+
+If you'd like to reproduce the fine-tuning and evaluation process, run the following commands:
+
+- Fine-tune and evaluate the T5-small model and then save the model checkpoints and outputs locally
+
+```bash
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.train_t5
+```
+
+Example:
+
+```bash
+docker run -it -v $(pwd):/workdir email-generation python -m src.train_t5
+```
+
+- Fine-tune and evaluate the FLAN-T5-small model and then save the model checkpoints and outputs locally
+
+```bash
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.train_flan_t5
+```
+
+Example:
+
+```bash
+docker run -it -v $(pwd):/workdir email-generation python -m src.train_flan_t5
+```
+
+- Fine-tune and evaluate the DistilGPT-2 model and then save the model checkpoints and outputs locally
+
+```bash
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.train_distilgpt2
+```
+
+Example:
+
+```bash
+docker run -it -v $(pwd):/workdir email-generation python -m src.train_distilgpt2
 ```
 
 ### Troubleshooting
