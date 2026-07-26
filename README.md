@@ -99,40 +99,68 @@ docker run -it email-generation
 
 All scripts are located in the `src/` directory.
 
-- Fine-tune, implement, evaluate the T5-small Model and save the output locally
+Our fine-tuned models are available on Hugging Face Hub, so you can run the models directly using the following commands:
 
+- Run the fine-tuned FLAN-T5-small model to generate inferences and save outputs locally
+  
 ```bash
-docker run -it -v $(pwd):/workdir <docker-image-name> python src/train_t5.py
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.flan_t5_model_runner
 ```
 
 Example:
 
 ```bash
-docker run -it -v $(pwd):/workdir email-generation python src/train_t5.py
+docker run -it -v $(pwd):/workdir email-generation python -m src.flan_t5_model_runner
 ```
 
-- Fine-tune, implement, evaluate the FLAN-T5-small Model and save the output locally
-
+- Run the fine-tuned DistilGPT-2 model to generate inferences and save outputs locally
+  
 ```bash
-docker run -it -v $(pwd):/workdir <docker-image-name> python src/train_flan_t5.py
-```
-
-Example:
-
-```bash
-docker run -it -v $(pwd):/workdir email-generation python src/train_flan_t5.py
-```
-
-- Fine-tune, implement, evaluate the DistilGPT2-small Model and save the output locally
-
-```bash
-docker run -it -v $(pwd):/workdir <docker-image-name> python src/train_distilgpt2.py
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.distilgpt2_model_runner
 ```
 
 Example:
 
 ```bash
-docker run -it -v $(pwd):/workdir email-generation python src/train_distilgpt2.py
+docker run -it -v $(pwd):/workdir email-generation python -m src.distilgpt2_model_runner
+```
+
+If you'd like to reproduce the fine-tuning and evaluation process, run the following commands:
+
+- Fine-tune and evaluate the T5-small model and then save the model and outputs locally
+
+```bash
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.train_t5
+```
+
+Example:
+
+```bash
+docker run -it -v $(pwd):/workdir email-generation python -m src.train_t5
+```
+
+- Fine-tune and evaluate the FLAN-T5-small model and then save the model and outputs locally
+
+```bash
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.train_flan_t5
+```
+
+Example:
+
+```bash
+docker run -it -v $(pwd):/workdir email-generation python -m src.train_flan_t5
+```
+
+- Fine-tune and evaluate the DistilGPT-2 model and then save the model and outputs locally
+
+```bash
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.train_distilgpt2
+```
+
+Example:
+
+```bash
+docker run -it -v $(pwd):/workdir email-generation python -m src.train_distilgpt2
 ```
 
 ### Troubleshooting
@@ -152,6 +180,20 @@ This project uses the Hugging Face Transformers library together with the PyTorc
 
 ### Dataset Preparation: 
 Uninformative patterns (e.g., text enclosed in angle brackets such as << >>), attachment filename lines, and extra whitespace were removed during data cleaning. The dataset is already split into training, validation, and test sets, making it ready for model traininig and evaluation.
+
+### Evaluation Methods
+The fine-tuned models are evaluated using the following metrics:
+
+| Metric       | What It Measures |
+|--------------|------------------| 
+| ROUGE-1      | Unigram (single words) overlap between generated text and reference text|
+| ROUGE-2      | Bigram (two consecutive words) overlap between generated text and reference text|
+| ROUGE-L      | The longest common subsequence between generated text and reference text|
+| BLEU         | N-gram precision between generated text and reference text | 
+| BERTScore F1 | Token-level similarity using contextual embeddings between generated text and reference text | 
+| Test Loss    | The model’s prediction error on the test dataset | 
+| Perplexity   | The uncertainty of the model's predictions |
+
 
 ### Email subject generation: 
 
@@ -205,5 +247,10 @@ Group 12:
 - M. Zhang
 
 References:
-google-t5/t5-small · Hugging Face. (2024, March 5). Huggingface.co. https://huggingface.co/google-t5/t5-small
-google/flan-t5-small · Hugging Face. (2024). In huggingface.co. https://huggingface.co/google/flan-t5-small
+
+- google-t5/t5-small · Hugging Face. (2024, March 5). Huggingface.co. https://huggingface.co/google-t5/t5-small
+- google/flan-t5-small · Hugging Face. (2024). In huggingface.co. https://huggingface.co/google/flan-t5-small
+- distilbert/distilgpt2  · Hugging Face. (2023). Huggingface.co. https://huggingface.co/distilbert/distilgpt2
+- Lin (2004). *ROUGE: A Package for Automatic Evaluation of Summaries.*
+- Papineni et al. (2002). *BLEU: A Method for Automatic Evaluation of Machine Translation.*
+- Zhang et al. (2020). *BERTScore: Evaluating Text Generation with BERT.*
