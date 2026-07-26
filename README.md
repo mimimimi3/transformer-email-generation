@@ -42,6 +42,17 @@ DistilGPT-2 is a decoder-only transformer model used in this project. It's suita
 
 The selected models meet the goals of this project by providing lightweight and reproducible models that specialize in email subject generation and email continuation generation.
 
+**Alterantive Models:**
+
+| Task | Alternative Model | Architecture | 
+|------|-------------------|--------------| 
+| Email subject generation | BART | Encoder-decoder Transformer (a denoising autoencoder for pretraining sequence-to-sequence models) | 
+| Email subject generation | T5-base / T5-large | Encoder-decoder Transformer | 
+| Email subject generation | FLAN-T5-base / FLAN-T5-large | Instruction-fine-tuned encoder-decoder Transformer |
+| Email continuation generation | GPT-2 / GPT-Neo | Decoder-only Transformer |
+
+These larger models were not selected due to higher computational requirements. T5-small, FLAN-T5-small, and DistilGPT-2 were chosen to balance model capability and resource efficiency.
+
 ### Preliminary Experiments
 See the 'docs' fold for detailed information.
 
@@ -201,6 +212,9 @@ The fine-tuned models are evaluated using the following metrics:
 | Test Loss    | The model’s prediction error on the test dataset | 
 | Perplexity   | The uncertainty of the model's predictions |
 
+### Generated Ouputs
+The generated output examples are saved in the `outputs/` folder.  
+See the `outputs/` folder for additional descriptions and details.
 
 ### Email subject generation: 
 
