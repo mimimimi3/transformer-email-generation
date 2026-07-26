@@ -181,6 +181,13 @@ This project uses the Hugging Face Transformers library together with the PyTorc
 ### Dataset Preparation: 
 Uninformative patterns (e.g., text enclosed in angle brackets such as << >>), attachment filename lines, and extra whitespace were removed during data cleaning. The dataset is already split into training, validation, and test sets, making it ready for model traininig and evaluation.
 
+### Model Architecture and Training: 
+| Task | Model | Architecture | Training Procedure |
+|------|-------|--------------|--------------------| 
+| Email subject generation | T5-small | Encoder-decoder Transformer | Use email bodies as inputs and email subjects as target outputs | 
+| Email subject generation | FLAN-T5-small | Instruction-fine-tuned encoder-decoder Transformer | Use email bodies as inputs and email subjects as target outputs | 
+| Email continuation generation | DistilGPT-2 | Decoder-only Transformer | Email bodies are split into two parts. One part serves as the prompt, and the other part serves as the target continuation |
+
 ### Evaluation Methods
 The fine-tuned models are evaluated using the following metrics:
 
