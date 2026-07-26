@@ -112,7 +112,7 @@ All scripts are located in the `src/` directory.
 
 Our fine-tuned models are available on Hugging Face Hub, so you can run the models directly using the following commands:
 
-- Run the fine-tuned FLAN-T5-small model to generate inferences and save outputs locally
+- Run the fine-tuned FLAN-T5-small model to generate inferences and save outputs locally in the `outputs/` folder.
   
 ```bash
 docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.flan_t5_model_runner
@@ -124,7 +124,7 @@ Example:
 docker run -it -v $(pwd):/workdir email-generation python -m src.flan_t5_model_runner
 ```
 
-- Run the fine-tuned DistilGPT-2 model to generate inferences and save outputs locally
+- Run the fine-tuned DistilGPT-2 model to generate inferences and save outputs locally in the `outputs/` folder.
   
 ```bash
 docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.distilgpt2_model_runner
