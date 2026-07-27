@@ -272,7 +272,19 @@ The pretrained row below is the untouched DistilGPT-2 baseline on `body_only`. T
 | DistilGPT-2 | Pretrained | body_only | 0.1434 | 0.0219 | 0.1220 | 2.0576 | 0.8201 | 3.7616 | 43.0177 |
 | DistilGPT-2 | Fine-tuned | body_only | 0.1543 | 0.0301 | 0.1279 | 2.4121 | 0.8155 | 3.1273 | 22.8127 |
 
-Fine-tuning lowered test loss and perplexity substantially (about 47% perplexity reduction versus the pretrained baseline), with small gains in ROUGE and BLEU. BERTScore stayed similar. These are encouraging preliminary continuation results; a full-data / multi-epoch run and the `subject_and_body` condition will be added next.
+Fine-tuning lowered test loss and perplexity substantially (about 47% perplexity reduction versus the pretrained baseline), with small gains in ROUGE and BLEU. BERTScore stayed similar. These are encouraging preliminary continuation results.
+
+The final metrics of both conditions are as follows:
+| Model       | Stage      | Condition   | ROUGE-1 | ROUGE-2 | ROUGE-L | BLEU | BERTScore F1 | Test Loss |Perplexity | 
+|-------------|------------|-------------|---------|---------|---------|------|--------------|-----------|-----------| 
+| DistilGPT-2 | Fine-tuned | Email body only            | 0.2398 | 0.0974 | 0.2036 | 8.8012  | 0.8383 | 2.9659 | 19.4126 | 
+| DistilGPT-2 | Fine-tuned | Email subject + email body | 0.2535 | 0.1196 | 0.2151 | 10.7959 | 0.8448 | 2.9488 | 19.0821 |
+
+These results suggest that the model using both email subject and email body as inputs performed slightly better than the model using email body only. This indicates that additional subject information provided useful context and improved the model’s performance.
+
+We can also see that fine-tuning on the email dataset significantly improved the performance of DistilGPT-2 under both input conditions compared with the pre-trained model. The fine-tuned model achieved lower test loss and reduced perplexity, indicating improved next-token prediction performance. The generation quality also improved, with higher ROUGE-1, ROUGE-2, ROUGE-L, BLEU, and BERTScore F1 scores.
+
+Overall, fine-tuning enabled DistilGPT-2 to better adapt to the email continuation task and generate more relevant and coherent continuations.
 
 
 ---
