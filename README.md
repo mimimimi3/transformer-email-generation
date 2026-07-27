@@ -17,8 +17,9 @@ Generate an appropriate email subject line based on the given email body.
 **2. Email Continuation Generation**
 
 *Task:*
-Generate a continuation of an email based on the provided email body.
-
+- Generate a continuation of an email based on the provided email body.
+- Generate a continuation of an email based on the provided email body and the provided email subjects.
+  
 *Model:*
 - DistilGPT-2
 
@@ -124,7 +125,7 @@ Example:
 docker run -it -v $(pwd):/workdir email-generation python -m src.flan_t5_model_runner
 ```
 
-- Run the fine-tuned DistilGPT-2 model to generate inferences and save outputs locally in the `outputs/` folder.
+- Run the fine-tuned DistilGPT-2 model to generate inferences based on the email body only and save the outputs locally in the `outputs/` folder.
   
 ```bash
 docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.distilgpt2_model_runner
@@ -135,6 +136,19 @@ Example:
 ```bash
 docker run -it -v $(pwd):/workdir email-generation python -m src.distilgpt2_model_runner
 ```
+
+- Run the fine-tuned DistilGPT-2 model to generate inferences based on the email body and email subject and save the outputs locally in the `outputs/` folder.
+  
+```bash
+docker run -it -v $(pwd):/workdir <docker-image-name> python -m src.distilgpt2_model_runner_subject_and_body
+```
+
+Example:
+
+```bash
+docker run -it -v $(pwd):/workdir email-generation python -m src.distilgpt2_model_runner_subject_and_body
+```
+
 
 If you'd like to reproduce the fine-tuning and evaluation process, run the following commands:
 
@@ -197,7 +211,7 @@ Uninformative patterns (e.g., text enclosed in angle brackets such as << >>), at
 |------|-------|--------------|--------------------| 
 | Email subject generation | T5-small | Encoder-decoder Transformer | Use email bodies as inputs and email subjects as target outputs | 
 | Email subject generation | FLAN-T5-small | Instruction-fine-tuned encoder-decoder Transformer | Use email bodies as inputs and email subjects as target outputs | 
-| Email continuation generation | DistilGPT-2 | Decoder-only Transformer | Email bodies are split into two parts. One part serves as the prompt, and the other part serves as the target continuation |
+| Email continuation generation | DistilGPT-2 | Decoder-only Transformer | Email bodies are split into two parts. One part serves as the prompt, and the other part serves as the target continuation. The model is trained under two input conditions: email body only, and email subject with email body. |
 
 ### Evaluation Methods
 The fine-tuned models are evaluated using the following metrics:
